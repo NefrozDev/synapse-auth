@@ -16,3 +16,4 @@ console.log(`OIDC_JWKS=${JSON.stringify({ keys: [jwk] })}`);
 console.log(`OIDC_COOKIE_KEYS=${hex(32)}`);
 console.log(`PLANO_CLIENT_SECRET=${hex(32)}`);
 console.log(`ERUDI_CLIENT_SECRET=${hex(32)}`);
+console.log(`SEMVER_SAGE_CLIENT_SECRET=${hex(32)}`);

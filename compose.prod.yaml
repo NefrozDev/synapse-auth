@@ -34,6 +34,7 @@ services:
       OIDC_COOKIE_KEYS: ${OIDC_COOKIE_KEYS:?Set OIDC_COOKIE_KEYS in .env}
       PLANO_CLIENT_SECRET: ${PLANO_CLIENT_SECRET:?Set PLANO_CLIENT_SECRET in .env}
       ERUDI_CLIENT_SECRET: ${ERUDI_CLIENT_SECRET:?Set ERUDI_CLIENT_SECRET in .env}
+      SEMVER_SAGE_CLIENT_SECRET: ${SEMVER_SAGE_CLIENT_SECRET:?Set SEMVER_SAGE_CLIENT_SECRET in .env}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-465}
       SMTP_USER: ${SMTP_USER:-}
@@ -43,7 +44,10 @@ services:
     logging: *logging
     networks:
       default:
+      # Plano's network reaches its database, Plano's API and Erudi's; Mailcow's reaches
+      # Semver Sage's app (semver-sage-app), for back-channel logouts and deletion notices.
       plano:
+      mailcow:
     healthcheck:
       test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:3300/api/health']
       interval: 10s

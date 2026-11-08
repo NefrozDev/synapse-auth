@@ -31,7 +31,12 @@ their own sessions; the provider's session is the single sign-on.
   in it: `client_secret_env` names the variable. `account_deletion_uri` is our own metadata.
 - `oidc-provider` refuses outgoing requests to private addresses (SSRF). Our `fetch` lets exactly
   the clients' back-channel logout addresses through, so production can use Docker-network URLs
-  (`http://api:3000/...`, `http://erudi-api:8080/...`); keep any other request protected.
+  (`http://api:3000/...`, `http://erudi-api:8080/...`, `http://semver-sage-app:3000/...`); keep
+  any other request protected.
+- Clients: Plano, Erudi and Semver Sage sign in from their servers (secret, back-channel logout,
+  deletion notices). The portfolio (`portfolio`, on Vercel) signs in from the browser: a public
+  client with PKCE only, no secret and no back-channel; `clientBasedCORS` lets its origin call the
+  token endpoint.
 - Interactions: the provider sends browsers to `/api/interaction/:uid`, which redirects to the
   Angular page `/interaction/:uid`. The interaction cookie is limited to `/api/interaction/:uid`,
   so every interaction call lives under it (`details`, `login`, `register`, `consent`, `abort`) and
@@ -84,13 +89,15 @@ deletion notices, and check their signatures against `/oidc/jwks`.
 
 ## Deployment
 
-- Target: the OVH VPS shared with Mailcow, Plano and Erudi, at `auth.synapseengineering.dev`.
+- Target: the OVH VPS shared with Mailcow, Plano, Erudi and Semver Sage, at
+  `auth.synapseengineering.dev`.
   Its Cloudflare record is the owner's to set (DNS only). Never change DNS, the firewall,
   Mailcow's ports or its certificate flow.
 - CI (`.github/workflows/ci.yml`) checks both apps and, on `main` only, pushes
   `ghcr.io/nefrozdev/synapse-auth-api` and `synapse-auth-web`. Never build images on the VPS.
 - The identity database and role live in Plano's PostgreSQL (`deploy/create-database.sh`); the API
-  joins Plano's network (`PLANO_NETWORK`), where it also reaches the apps' APIs. Mailcow's nginx
+  joins Plano's network (`PLANO_NETWORK`), where it also reaches Plano's and Erudi's APIs, and
+  Mailcow's network, where it reaches Semver Sage's app (`semver-sage-app`). Mailcow's nginx
   terminates HTTPS (`deploy/mailcow-auth.conf`) and reaches `identity-web` over its network.
   Service names stay `identity-*`, and keep `mem_limit` on both.
 - Settings come from the VPS `.env` only (`.env.production.example`); `node

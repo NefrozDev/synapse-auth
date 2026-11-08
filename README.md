@@ -49,7 +49,7 @@ Discovery: `https://auth.synapseengineering.dev/oidc/.well-known/openid-configur
 
 ## Deployment
 
-The service runs on the VPS next to Plano, Erudi and Mailcow, with its own database in Plano's
+The service runs on the VPS next to Plano, Erudi, Semver Sage and Mailcow, with its own database in Plano's
 PostgreSQL. AGENTS.md explains the setup.
 
 ### First deployment
