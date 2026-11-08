@@ -1,0 +1,49 @@
+# Plain HTTP inside Docker: Mailcow's nginx terminates HTTPS in front of it.
+{
+	servers {
+		# Keep nginx's X-Forwarded-For and X-Forwarded-Proto: the API rate limits
+		# by the real client IP, and the provider must see https to mark its
+		# cookies Secure and accept its own https issuer.
+		trusted_proxies static private_ranges
+	}
+}
+
+:80 {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	# The provider (OpenID Connect endpoints and its few pages) and the API.
+	# Its sign-out page submits itself with an inline script.
+	@backend path /api/* /oidc/*
+	handle @backend {
+		header Content-Security-Policy "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'"
+		reverse_proxy identity-api:3300
+	}
+
+	handle {
+		# The sign-in pages are what an attacker would most like to inject into:
+		# scripts only from this site (the build inlines no script).
+		header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+
+		root * /srv
+
+		# Angular puts a content hash of 8 characters in bundle names, so they
+		# never change in place. Everything else (index.html at any route)
+		# revalidates, so a deploy never leaves browsers on deleted bundles.
+		@hashed path_regexp -[A-Za-z0-9_-]{8}\.(js|css)$
+		header @hashed Cache-Control "public, max-age=31536000, immutable"
+		@unhashed not path_regexp -[A-Za-z0-9_-]{8}\.(js|css)$
+		header @unhashed Cache-Control "no-cache"
+
+		# Unknown paths are client-side routes.
+		try_files {path} /index.html
+		file_server
+	}
+}

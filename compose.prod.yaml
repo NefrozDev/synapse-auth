@@ -1,0 +1,77 @@
+# Production stack for the VPS, next to Plano, Erudi and Mailcow. Images are
+# built by GitHub Actions:
+#   docker compose -f compose.prod.yaml pull && docker compose -f compose.prod.yaml up -d --wait
+# Values come from the root .env (see .env.production.example).
+#
+# No database here: the identity database and role live in Plano's PostgreSQL
+# (deploy/create-database.sh), reached over Plano's Docker network, where the
+# apps' APIs also listen for back-channel logouts and deletion notices.
+# Mailcow's nginx terminates HTTPS and reaches identity-web over the Mailcow
+# network (deploy/mailcow-auth.conf). Nothing publishes a port.
+# Services are named identity-*: a service name becomes a host name on every
+# network it joins, where Plano already answers to `api` and `web`.
+name: identity-prod
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: 10m
+    max-file: '3'
+
+services:
+  identity-api:
+    image: ghcr.io/nefrozdev/synapse-auth-api:latest
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      PUBLIC_URL: https://${DOMAIN:?Set DOMAIN in .env}
+      DATABASE_URL: postgres://identity:${IDENTITY_DB_PASSWORD:?Set IDENTITY_DB_PASSWORD in .env}@${DB_HOST:-db}:5432/identity
+      DATABASE_POOL_SIZE: ${DATABASE_POOL_SIZE:-5}
+      OIDC_CLIENTS_FILE: config/clients.production.json
+      OIDC_JWKS: ${OIDC_JWKS:?Set OIDC_JWKS in .env}
+      OIDC_COOKIE_KEYS: ${OIDC_COOKIE_KEYS:?Set OIDC_COOKIE_KEYS in .env}
+      PLANO_CLIENT_SECRET: ${PLANO_CLIENT_SECRET:?Set PLANO_CLIENT_SECRET in .env}
+      ERUDI_CLIENT_SECRET: ${ERUDI_CLIENT_SECRET:?Set ERUDI_CLIENT_SECRET in .env}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
+    mem_limit: 192m
+    logging: *logging
+    networks:
+      default:
+      plano:
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:3300/api/health']
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 30s
+
+  identity-web:
+    image: ghcr.io/nefrozdev/synapse-auth-web:latest
+    build:
+      context: .
+      dockerfile: Frontend/Dockerfile
+    restart: unless-stopped
+    mem_limit: 64m
+    logging: *logging
+    networks:
+      default:
+      mailcow:
+        # The name Mailcow's nginx proxies to.
+        aliases: [identity-web]
+    depends_on:
+      identity-api:
+        condition: service_healthy
+
+networks:
+  plano:
+    external: true
+    name: ${PLANO_NETWORK:-plano-prod_default}
+  mailcow:
+    external: true
+    name: ${MAILCOW_NETWORK:-mailcowdockerized_mailcow-network}

@@ -1,0 +1,10 @@
+# Docker builds use the repository root as context (the web image needs deploy/).
+**/node_modules
+**/dist
+**/.angular
+**/coverage
+**/.env
+**/.env.*
+.git
+.github
+.vscode
