@@ -134,11 +134,13 @@ export class AccountController {
   /**
    * Back from signing in. The page needs no token: what it reads is the
    * provider's session, now open. The state check refuses a sign-in this
-   * browser did not start.
+   * browser did not start; a cancelled one comes back with an error and no
+   * code. Either way the page offers to try again rather than looping.
    */
   @Get('callback')
   callback(
     @Query('state') state: string | undefined,
+    @Query('code') code: string | undefined,
     @Req() req: Request,
     @Res() res: Response,
   ): void {
@@ -146,7 +148,7 @@ export class AccountController {
       SIGN_IN_COOKIE
     ];
     res.clearCookie(SIGN_IN_COOKIE, this.cookieOptions());
-    const valid = !!state && !!expected && sameText(state, expected);
+    const valid = !!code && !!state && !!expected && sameText(state, expected);
     res.redirect(303, valid ? '/account' : '/account?signInFailed=1');
   }
 

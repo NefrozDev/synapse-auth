@@ -104,16 +104,32 @@ describe('The account page API', () => {
     });
     const state = authUrl.searchParams.get('state')!;
 
-    const forged = await browser.get('/api/account/callback?state=forged');
+    const forged = await browser.get(
+      '/api/account/callback?code=c&state=forged',
+    );
     expect(forged.headers.location).toBe('/account?signInFailed=1');
 
     // The cookie went with the forged attempt: a new sign-in is needed.
-    const late = await browser.get(`/api/account/callback?state=${state}`);
+    const late = await browser.get(
+      `/api/account/callback?code=c&state=${state}`,
+    );
     expect(late.headers.location).toBe('/account?signInFailed=1');
+
+    // Cancelled: the right state, but an error and no code.
+    const cancelled = await browser.get('/api/account/sign-in');
+    const cancelledState = new URL(cancelled.headers.location).searchParams.get(
+      'state',
+    );
+    const denied = await browser.get(
+      `/api/account/callback?error=access_denied&state=${cancelledState}`,
+    );
+    expect(denied.headers.location).toBe('/account?signInFailed=1');
 
     const again = await browser.get('/api/account/sign-in');
     const newState = new URL(again.headers.location).searchParams.get('state');
-    const ok = await browser.get(`/api/account/callback?state=${newState}`);
+    const ok = await browser.get(
+      `/api/account/callback?code=c&state=${newState}`,
+    );
     expect(ok.status).toBe(303);
     expect(ok.headers.location).toBe('/account');
   });
