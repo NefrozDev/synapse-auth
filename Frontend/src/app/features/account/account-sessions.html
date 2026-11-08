@@ -1,0 +1,56 @@
+<section class="card" aria-labelledby="sessions-title">
+  <div>
+    <h2 class="section-title" id="sessions-title">{{ 'account.sessions' | transloco }}</h2>
+    <p class="subtitle">{{ 'account.sessionsText' | transloco }}</p>
+  </div>
+  @if (signOutError(); as error) {
+    <p class="alert" role="alert">{{ error | transloco }}</p>
+  }
+  <div class="row">
+    <button class="button" type="button" [disabled]="busy()" (click)="signOut()">
+      {{ 'account.signOut' | transloco }}
+    </button>
+    <button
+      class="button button--secondary"
+      type="button"
+      [disabled]="busy()"
+      (click)="signOutEverywhere()"
+    >
+      {{ 'account.signOutEverywhere' | transloco }}
+    </button>
+  </div>
+</section>
+
+<section class="card" aria-labelledby="delete-title">
+  <div>
+    <h2 class="section-title" id="delete-title">{{ 'account.delete' | transloco }}</h2>
+    <p class="subtitle">{{ 'account.deleteText' | transloco }}</p>
+  </div>
+  <form class="stack" [formRoot]="form" novalidate>
+    <div class="field">
+      <label class="field__label" for="delete-password">{{
+        'account.deleteConfirm' | transloco
+      }}</label>
+      <input
+        id="delete-password"
+        class="field__input"
+        type="password"
+        autocomplete="current-password"
+        [formField]="form.password"
+        [attr.aria-invalid]="!!visibleError(form.password)"
+        [attr.aria-describedby]="visibleError(form.password) ? 'delete-password-error' : null"
+      />
+      @if (visibleError(form.password); as error) {
+        <p class="form-error" id="delete-password-error">{{ error | transloco }}</p>
+      }
+    </div>
+    @if (deleteError(); as error) {
+      <p class="alert" role="alert">{{ error | transloco }}</p>
+    }
+    <div class="row">
+      <button class="button button--danger" type="submit" [disabled]="form().submitting()">
+        {{ 'account.deleteSubmit' | transloco }}
+      </button>
+    </div>
+  </form>
+</section>

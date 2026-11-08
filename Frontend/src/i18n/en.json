@@ -1,0 +1,161 @@
+{
+  "site": {
+    "name": "Synapse account",
+    "tagline": "One account for every Synapse Engineering app."
+  },
+  "titles": {
+    "signIn": "Sign in",
+    "signUp": "Create an account",
+    "forgotPassword": "Forgotten password",
+    "resetPassword": "New password",
+    "account": "My account",
+    "signedOut": "Signed out",
+    "terms": "Terms and privacy"
+  },
+  "errors": {
+    "required": "This field is required.",
+    "email": "Enter a valid e-mail address.",
+    "passwordLength": "The password must have at least 8 characters.",
+    "passwordTooLong": "The password must have at most 128 characters.",
+    "usernameFormat": "3 to 30 letters, digits, dots, hyphens or underscores.",
+    "nameTooLong": "80 characters at most.",
+    "acceptTerms": "Accept the terms to create an account.",
+    "wrongPassword": "The password is incorrect.",
+    "taken": "This username or e-mail address is already used.",
+    "tooManyAttempts": "Too many attempts. Wait a minute before trying again.",
+    "generic": "Something went wrong. Try again in a moment.",
+    "unreachable": "The service cannot be reached. Check your connection and try again."
+  },
+  "interaction": {
+    "continueTo": "to continue to {{app}}",
+    "backTo": "Back to {{app}}",
+    "expiredTitle": "This sign-in has expired",
+    "expiredText": "Go back to the app and start signing in again.",
+    "toAccount": "Go to my account",
+    "retry": "Try again"
+  },
+  "signIn": {
+    "title": "Sign in",
+    "login": "Username or e-mail address",
+    "password": "Password",
+    "forgot": "Forgotten password?",
+    "submit": "Sign in",
+    "invalid": "The username or password is incorrect.",
+    "noAccount": "No account yet?",
+    "createAccount": "Create an account"
+  },
+  "signUp": {
+    "title": "Create an account",
+    "givenName": "First name",
+    "familyName": "Last name",
+    "username": "Username",
+    "usernameHint": "Shown to the people you share with in the apps.",
+    "email": "E-mail address",
+    "password": "Password",
+    "passwordHint": "At least 8 characters.",
+    "accept": "I accept the terms of use and the privacy policy.",
+    "readTerms": "Read the terms and the privacy policy",
+    "submit": "Create my account",
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "forgot": {
+    "title": "Forgotten password",
+    "text": "Enter your account's e-mail address: you will get a link to choose a new password.",
+    "email": "E-mail address",
+    "submit": "Send the link",
+    "sent": "If an account uses this address, an e-mail is on its way. The link stays valid for 30 minutes.",
+    "back": "Back to sign-in"
+  },
+  "reset": {
+    "title": "New password",
+    "password": "New password",
+    "submit": "Save",
+    "done": "Your password is changed. For your safety, you are signed out of every device and every app.",
+    "invalid": "This link no longer works. Ask for a new one.",
+    "askAgain": "Ask for a new link",
+    "toAccount": "Sign in"
+  },
+  "account": {
+    "hello": "Hello {{name}}",
+    "summary": "{{username}} · {{email}}",
+    "apps": "Your apps",
+    "appsText": "This account signs you in to each of them.",
+    "profile": "Profile",
+    "givenName": "First name",
+    "familyName": "Last name",
+    "username": "Username",
+    "language": "Language",
+    "languageHint": "Used for e-mails and by the apps that offer it.",
+    "save": "Save",
+    "saved": "Changes saved.",
+    "email": "E-mail address",
+    "newEmail": "New e-mail address",
+    "currentPassword": "Current password",
+    "changeEmail": "Change address",
+    "emailChanged": "E-mail address changed.",
+    "password": "Password",
+    "newPassword": "New password",
+    "changePassword": "Change password",
+    "passwordChanged": "Password changed. Your other devices are signed out.",
+    "sessions": "Sign-in",
+    "sessionsText": "Signing out here signs you out of every app on this device.",
+    "signOut": "Sign out",
+    "signOutEverywhere": "Sign out of every device",
+    "delete": "Delete the account",
+    "deleteText": "Your account and what each app keeps about you will be erased. This cannot be undone.",
+    "deleteConfirm": "Enter your password to confirm",
+    "deleteSubmit": "Delete for good",
+    "terms": "Terms and privacy",
+    "signingIn": "Signing in…"
+  },
+  "signedOut": {
+    "title": "You are signed out",
+    "text": "You are signed out of every Synapse app on this device.",
+    "deletedTitle": "Your account is deleted",
+    "deletedText": "Your account is erased, and each app was told to erase what it kept about you.",
+    "signIn": "Sign in again"
+  },
+  "terms": {
+    "title": "Terms of use and privacy",
+    "updated": "Last updated: {{date}}",
+    "back": "Back",
+    "service": {
+      "title": "The service",
+      "text": "The Synapse account signs you in, with one login, to the apps of Synapse Engineering (a Belgian company), such as Plano and Erudi. Each app has its own terms for what it does with your data; this text covers the account itself."
+    },
+    "account": {
+      "title": "Your account",
+      "text": "You must be 13 or older. You keep your password secret and are responsible for what is done with your account. The service is free and provided as is; it may change or stop, and we may close an account used to harm other people or the service."
+    },
+    "data": {
+      "title": "The data kept",
+      "text": "Your first and last name, username, e-mail address, language, the date you accepted these terms, and your password, kept only in hashed form (scrypt): nobody can read it back. They are used to sign you in and are passed to the apps you open (identifier, name, username, e-mail address, language). Your IP address is not stored with your account: it is only used, in memory and for one minute, to limit password guesses."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Only the cookies that are needed: your session's, which lasts 30 days at most, those that follow a sign-in in progress (one hour at most) and the one protecting the sign-in to this page (10 minutes). No trackers, no advertising, no third-party service: nothing is loaded from another site."
+    },
+    "security": {
+      "title": "Security",
+      "text": "A password reset link stays valid for 30 minutes and works once; using it signs you out everywhere. Repeated sign-in attempts are limited."
+    },
+    "hosting": {
+      "title": "Hosting and backups",
+      "text": "The data is hosted in France by OVHcloud. A backup is made every night and kept 14 days at most."
+    },
+    "deletion": {
+      "title": "Deleting your account",
+      "text": "From the \"My account\" page, with your password. The account is erased at once, all your sessions end, and each app is told to erase what it keeps about you. Backups are gone at most 14 days later."
+    },
+    "rights": {
+      "title": "Your rights",
+      "text": "You can view, correct, export or erase your data, and object to its processing, by writing to {{email}}. You can also complain to the Belgian Data Protection Authority."
+    },
+    "authority": "Data Protection Authority",
+    "law": {
+      "title": "Governing law",
+      "text": "These terms are governed by Belgian law; the courts of Brussels have jurisdiction. Any significant change will be announced before it applies."
+    }
+  }
+}

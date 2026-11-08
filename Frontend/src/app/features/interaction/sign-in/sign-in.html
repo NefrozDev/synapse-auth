@@ -1,0 +1,86 @@
+<main class="page">
+  @if (expired() || (details.error() && isExpired(details.error()))) {
+    <app-interaction-expired />
+  } @else if (details.error()) {
+    <section class="card">
+      <p class="alert" role="alert">{{ 'errors.generic' | transloco }}</p>
+      <button class="button button--secondary" type="button" (click)="details.reload()">
+        {{ 'interaction.retry' | transloco }}
+      </button>
+    </section>
+  } @else if (details.hasValue()) {
+    <section class="card" aria-labelledby="sign-in-title">
+      <div>
+        <h1 class="title" id="sign-in-title">{{ 'signIn.title' | transloco }}</h1>
+        @if (details.value().client.id !== 'account') {
+          <p class="subtitle">
+            {{ 'interaction.continueTo' | transloco: { app: details.value().client.name } }}
+          </p>
+        }
+      </div>
+
+      <form class="stack" [formRoot]="form" novalidate>
+        <div class="field">
+          <label class="field__label" for="sign-in-login">{{ 'signIn.login' | transloco }}</label>
+          <input
+            id="sign-in-login"
+            class="field__input"
+            type="text"
+            autocomplete="username"
+            autocapitalize="none"
+            spellcheck="false"
+            [formField]="form.login"
+            [attr.aria-invalid]="!!visibleError(form.login)"
+            [attr.aria-describedby]="visibleError(form.login) ? 'sign-in-login-error' : null"
+          />
+          @if (visibleError(form.login); as error) {
+            <p class="form-error" id="sign-in-login-error">{{ error | transloco }}</p>
+          }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="sign-in-password">{{
+            'signIn.password' | transloco
+          }}</label>
+          <input
+            id="sign-in-password"
+            class="field__input"
+            type="password"
+            autocomplete="current-password"
+            [formField]="form.password"
+            [attr.aria-invalid]="!!visibleError(form.password)"
+            [attr.aria-describedby]="visibleError(form.password) ? 'sign-in-password-error' : null"
+          />
+          @if (visibleError(form.password); as error) {
+            <p class="form-error" id="sign-in-password-error">{{ error | transloco }}</p>
+          }
+          <a
+            class="text-link"
+            routerLink="/forgot-password"
+            [queryParams]="{ return: '/interaction/' + uid() }"
+            >{{ 'signIn.forgot' | transloco }}</a
+          >
+        </div>
+
+        @if (formError(); as error) {
+          <p class="alert" role="alert">{{ error | transloco }}</p>
+        }
+        <button class="button" type="submit" [disabled]="form().submitting() || leaving()">
+          {{ 'signIn.submit' | transloco }}
+        </button>
+      </form>
+
+      <p>
+        <span class="subtitle">{{ 'signIn.noAccount' | transloco }}</span>
+        {{ ' ' }}
+        <a class="text-link" routerLink="sign-up">{{ 'signIn.createAccount' | transloco }}</a>
+      </p>
+      @if (details.value().client.id !== 'account') {
+        <button class="text-link" type="button" [disabled]="leaving()" (click)="backToApp()">
+          ← {{ 'interaction.backTo' | transloco: { app: details.value().client.name } }}
+        </button>
+      }
+    </section>
+    <p class="page-note">{{ 'site.tagline' | transloco }}</p>
+  }
+</main>

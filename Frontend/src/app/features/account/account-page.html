@@ -1,0 +1,52 @@
+<main class="page page--wide">
+  @if (account.hasValue()) {
+    @let me = account.value();
+    <section class="card" aria-labelledby="account-title">
+      <h1 class="title" id="account-title">
+        {{ 'account.hello' | transloco: { name: me.givenName } }}
+      </h1>
+      <p class="subtitle">
+        {{ 'account.summary' | transloco: { username: me.username, email: me.email } }}
+      </p>
+    </section>
+
+    @if (me.apps.length > 0) {
+      <section class="card" aria-labelledby="apps-title">
+        <div>
+          <h2 class="section-title" id="apps-title">{{ 'account.apps' | transloco }}</h2>
+          <p class="subtitle">{{ 'account.appsText' | transloco }}</p>
+        </div>
+        <ul class="apps">
+          @for (app of me.apps; track app.id) {
+            <li>
+              <a class="apps__link" [href]="app.uri">
+                <span class="apps__initial" aria-hidden="true">{{ app.name[0] }}</span>
+                {{ app.name }}
+              </a>
+            </li>
+          }
+        </ul>
+      </section>
+    }
+
+    <app-profile-section [account]="me" (updated)="updated($event)" />
+    <app-email-section [account]="me" (updated)="updated($event)" />
+    <app-password-section />
+    <app-account-sessions />
+  } @else if (signInFailed()) {
+    <section class="card" role="status">
+      <h1 class="title">{{ 'titles.account' | transloco }}</h1>
+      <p class="subtitle">{{ 'site.tagline' | transloco }}</p>
+      <a class="button" [href]="signInUrl()">{{ 'signIn.submit' | transloco }}</a>
+    </section>
+  } @else if (signingIn() || account.isLoading()) {
+    <p class="page-note" role="status">{{ 'account.signingIn' | transloco }}</p>
+  } @else if (account.error()) {
+    <section class="card">
+      <p class="alert" role="alert">{{ 'errors.generic' | transloco }}</p>
+      <button class="button button--secondary" type="button" (click)="account.reload()">
+        {{ 'interaction.retry' | transloco }}
+      </button>
+    </section>
+  }
+</main>

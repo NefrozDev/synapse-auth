@@ -1,0 +1,274 @@
+// Design tokens. Components use these variables, never raw colours.
+// System fonts only: nothing is loaded from another origin (privacy policy).
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-primary-soft: #eef2ff;
+  --color-background: #f5f3ff;
+  --color-surface: #ffffff;
+  --color-text: #1e1b4b;
+  --color-text-secondary: #4c4a6b;
+  --color-border: #ddd8f5;
+  --color-danger: #b42318;
+  --color-danger-soft: #fef3f2;
+  --color-success: #067647;
+  --color-success-soft: #ecfdf3;
+  --color-focus: #6366f1;
+  --shadow-card: 0 8px 30px rgb(30 27 75 / 8%);
+
+  --radius-card: 20px;
+  --radius-control: 12px;
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --page-width: 440px;
+  --page-width-wide: 720px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #818cf8;
+    --color-primary-dark: #a5b4fc;
+    --color-primary-soft: #26254a;
+    --color-background: #12112a;
+    --color-surface: #1c1b3a;
+    --color-text: #eef0ff;
+    --color-text-secondary: #b6b4d6;
+    --color-border: #34325e;
+    --color-danger: #f97066;
+    --color-danger-soft: #3a1a1a;
+    --color-success: #47cd89;
+    --color-success-soft: #123326;
+    --shadow-card: 0 8px 30px rgb(0 0 0 / 35%);
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+// A centred column; `.page--wide` for the account page.
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: calc(var(--page-width) + 32px);
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+
+  &--wide {
+    max-width: calc(var(--page-width-wide) + 32px);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 24px;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    color: var(--color-text);
+
+    &[aria-invalid='true'] {
+      border-color: var(--color-danger);
+    }
+  }
+
+  &__hint {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+}
+
+.checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--color-primary);
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  &--secondary {
+    border-color: var(--color-border);
+    background: transparent;
+    color: var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary-soft);
+    }
+  }
+
+  &--danger {
+    background: var(--color-danger);
+
+    &:hover:not(:disabled) {
+      background: var(--color-danger);
+      filter: brightness(0.9);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .button:not(.button--secondary) {
+    color: #12112a;
+  }
+}
+
+.text-link {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.form-error {
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: var(--radius-control);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+
+  &--success {
+    background: var(--color-success-soft);
+    color: var(--color-success);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// A line under the card, e.g. what the site is.
+.page-note {
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+// Two fields side by side when there is room (first and last name).
+.sign-up__half {
+  flex: 1 1 160px;
+}

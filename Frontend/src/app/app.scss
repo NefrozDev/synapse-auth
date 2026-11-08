@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.site-header {
+  display: flex;
+  justify-content: center;
+  padding: 28px 16px 0;
+
+  &__brand {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
+
+.site-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0 16px 28px;
+  font-size: 0.9rem;
+}

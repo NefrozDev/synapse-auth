@@ -1,0 +1,49 @@
+<section class="card" aria-labelledby="email-title">
+  <div>
+    <h2 class="section-title" id="email-title">{{ 'account.email' | transloco }}</h2>
+    <p class="subtitle">{{ account().email }}</p>
+  </div>
+  <form class="stack" [formRoot]="form" novalidate>
+    <div class="field">
+      <label class="field__label" for="email-new">{{ 'account.newEmail' | transloco }}</label>
+      <input
+        id="email-new"
+        class="field__input"
+        type="email"
+        autocomplete="email"
+        [formField]="form.email"
+        [attr.aria-invalid]="!!visibleError(form.email)"
+      />
+      @if (visibleError(form.email); as error) {
+        <p class="form-error" role="alert">{{ error | transloco }}</p>
+      }
+    </div>
+    <div class="field">
+      <label class="field__label" for="email-password">{{
+        'account.currentPassword' | transloco
+      }}</label>
+      <input
+        id="email-password"
+        class="field__input"
+        type="password"
+        autocomplete="current-password"
+        [formField]="form.password"
+        [attr.aria-invalid]="!!visibleError(form.password)"
+      />
+      @if (visibleError(form.password); as error) {
+        <p class="form-error" role="alert">{{ error | transloco }}</p>
+      }
+    </div>
+    @if (formError(); as error) {
+      <p class="alert" role="alert">{{ error | transloco }}</p>
+    }
+    @if (changed()) {
+      <p class="alert alert--success" role="status">{{ 'account.emailChanged' | transloco }}</p>
+    }
+    <div class="row">
+      <button class="button button--secondary" type="submit" [disabled]="form().submitting()">
+        {{ 'account.changeEmail' | transloco }}
+      </button>
+    </div>
+  </form>
+</section>

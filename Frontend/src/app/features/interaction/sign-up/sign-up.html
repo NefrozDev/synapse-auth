@@ -1,0 +1,149 @@
+<main class="page">
+  @if (expired() || (details.error() && isExpired(details.error()))) {
+    <app-interaction-expired />
+  } @else if (details.error()) {
+    <section class="card">
+      <p class="alert" role="alert">{{ 'errors.generic' | transloco }}</p>
+      <button class="button button--secondary" type="button" (click)="details.reload()">
+        {{ 'interaction.retry' | transloco }}
+      </button>
+    </section>
+  } @else if (details.hasValue()) {
+    <section class="card" aria-labelledby="sign-up-title">
+      <div>
+        <h1 class="title" id="sign-up-title">{{ 'signUp.title' | transloco }}</h1>
+        @if (details.value().client.id !== 'account') {
+          <p class="subtitle">
+            {{ 'interaction.continueTo' | transloco: { app: details.value().client.name } }}
+          </p>
+        }
+      </div>
+
+      <form class="stack" [formRoot]="form" novalidate>
+        <div class="row">
+          <div class="field sign-up__half">
+            <label class="field__label" for="sign-up-given-name">{{
+              'signUp.givenName' | transloco
+            }}</label>
+            <input
+              id="sign-up-given-name"
+              class="field__input"
+              autocomplete="given-name"
+              [formField]="form.givenName"
+              [attr.aria-invalid]="!!visibleError(form.givenName)"
+              [attr.aria-describedby]="
+                visibleError(form.givenName) ? 'sign-up-given-name-error' : null
+              "
+            />
+            @if (visibleError(form.givenName); as error) {
+              <p class="form-error" id="sign-up-given-name-error">{{ error | transloco }}</p>
+            }
+          </div>
+          <div class="field sign-up__half">
+            <label class="field__label" for="sign-up-family-name">{{
+              'signUp.familyName' | transloco
+            }}</label>
+            <input
+              id="sign-up-family-name"
+              class="field__input"
+              autocomplete="family-name"
+              [formField]="form.familyName"
+              [attr.aria-invalid]="!!visibleError(form.familyName)"
+              [attr.aria-describedby]="
+                visibleError(form.familyName) ? 'sign-up-family-name-error' : null
+              "
+            />
+            @if (visibleError(form.familyName); as error) {
+              <p class="form-error" id="sign-up-family-name-error">{{ error | transloco }}</p>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="sign-up-username">{{
+            'signUp.username' | transloco
+          }}</label>
+          <input
+            id="sign-up-username"
+            class="field__input"
+            autocomplete="username"
+            autocapitalize="none"
+            spellcheck="false"
+            [formField]="form.username"
+            [attr.aria-invalid]="!!visibleError(form.username)"
+            aria-describedby="sign-up-username-hint"
+          />
+          <p class="field__hint" id="sign-up-username-hint">
+            {{ 'signUp.usernameHint' | transloco }}
+          </p>
+          @if (visibleError(form.username); as error) {
+            <p class="form-error" role="alert">{{ error | transloco }}</p>
+          }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="sign-up-email">{{ 'signUp.email' | transloco }}</label>
+          <input
+            id="sign-up-email"
+            class="field__input"
+            type="email"
+            autocomplete="email"
+            [formField]="form.email"
+            [attr.aria-invalid]="!!visibleError(form.email)"
+            [attr.aria-describedby]="visibleError(form.email) ? 'sign-up-email-error' : null"
+          />
+          @if (visibleError(form.email); as error) {
+            <p class="form-error" id="sign-up-email-error">{{ error | transloco }}</p>
+          }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="sign-up-password">{{
+            'signUp.password' | transloco
+          }}</label>
+          <input
+            id="sign-up-password"
+            class="field__input"
+            type="password"
+            autocomplete="new-password"
+            [formField]="form.password"
+            [attr.aria-invalid]="!!visibleError(form.password)"
+            aria-describedby="sign-up-password-hint"
+          />
+          <p class="field__hint" id="sign-up-password-hint">
+            {{ 'signUp.passwordHint' | transloco }}
+          </p>
+          @if (visibleError(form.password); as error) {
+            <p class="form-error" role="alert">{{ error | transloco }}</p>
+          }
+        </div>
+
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox" [formField]="form.acceptedTerms" />
+            <span>{{ 'signUp.accept' | transloco }}</span>
+          </label>
+          <a class="text-link" routerLink="/terms" target="_blank" rel="noopener">{{
+            'signUp.readTerms' | transloco
+          }}</a>
+          @if (visibleError(form.acceptedTerms); as error) {
+            <p class="form-error" role="alert">{{ error | transloco }}</p>
+          }
+        </div>
+
+        @if (formError(); as error) {
+          <p class="alert" role="alert">{{ error | transloco }}</p>
+        }
+        <button class="button" type="submit" [disabled]="form().submitting() || leaving()">
+          {{ 'signUp.submit' | transloco }}
+        </button>
+      </form>
+
+      <p>
+        <span class="subtitle">{{ 'signUp.haveAccount' | transloco }}</span>
+        {{ ' ' }}
+        <a class="text-link" routerLink="..">{{ 'signUp.signIn' | transloco }}</a>
+      </p>
+    </section>
+  }
+</main>

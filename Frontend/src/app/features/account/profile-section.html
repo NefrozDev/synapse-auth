@@ -1,0 +1,82 @@
+<section class="card" aria-labelledby="profile-title">
+  <h2 class="section-title" id="profile-title">{{ 'account.profile' | transloco }}</h2>
+  <form class="stack" [formRoot]="form" novalidate>
+    <div class="row">
+      <div class="field sign-up__half">
+        <label class="field__label" for="profile-given-name">{{
+          'account.givenName' | transloco
+        }}</label>
+        <input
+          id="profile-given-name"
+          class="field__input"
+          autocomplete="given-name"
+          [formField]="form.givenName"
+          [attr.aria-invalid]="!!visibleError(form.givenName)"
+        />
+        @if (visibleError(form.givenName); as error) {
+          <p class="form-error" role="alert">{{ error | transloco }}</p>
+        }
+      </div>
+      <div class="field sign-up__half">
+        <label class="field__label" for="profile-family-name">{{
+          'account.familyName' | transloco
+        }}</label>
+        <input
+          id="profile-family-name"
+          class="field__input"
+          autocomplete="family-name"
+          [formField]="form.familyName"
+          [attr.aria-invalid]="!!visibleError(form.familyName)"
+        />
+        @if (visibleError(form.familyName); as error) {
+          <p class="form-error" role="alert">{{ error | transloco }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="profile-username">{{
+        'account.username' | transloco
+      }}</label>
+      <input
+        id="profile-username"
+        class="field__input"
+        autocomplete="username"
+        autocapitalize="none"
+        spellcheck="false"
+        [formField]="form.username"
+        [attr.aria-invalid]="!!visibleError(form.username)"
+      />
+      @if (visibleError(form.username); as error) {
+        <p class="form-error" role="alert">{{ error | transloco }}</p>
+      }
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="profile-locale">{{ 'account.language' | transloco }}</label>
+      <select
+        id="profile-locale"
+        class="field__input"
+        [formField]="form.locale"
+        aria-describedby="profile-locale-hint"
+      >
+        @for (language of languages; track language.code) {
+          <option [value]="language.code" [attr.lang]="language.code">{{ language.name }}</option>
+        }
+      </select>
+      <p class="field__hint" id="profile-locale-hint">{{ 'account.languageHint' | transloco }}</p>
+    </div>
+
+    @if (formError(); as error) {
+      <p class="alert" role="alert">{{ error | transloco }}</p>
+    }
+    @if (saved()) {
+      <p class="alert alert--success" role="status">{{ 'account.saved' | transloco }}</p>
+    }
+    <div class="row">
+      <button class="button" type="submit" [disabled]="form().submitting()">
+        {{ 'account.save' | transloco }}
+      </button>
+    </div>
+  </form>
+</section>

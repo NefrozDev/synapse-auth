@@ -1,0 +1,161 @@
+{
+  "site": {
+    "name": "Compte Synapse",
+    "tagline": "Un seul compte pour toutes les applications Synapse Engineering."
+  },
+  "titles": {
+    "signIn": "Connexion",
+    "signUp": "Créer un compte",
+    "forgotPassword": "Mot de passe oublié",
+    "resetPassword": "Nouveau mot de passe",
+    "account": "Mon compte",
+    "signedOut": "Déconnexion",
+    "terms": "Conditions et confidentialité"
+  },
+  "errors": {
+    "required": "Ce champ est obligatoire.",
+    "email": "Saisissez une adresse e-mail valide.",
+    "passwordLength": "Le mot de passe doit contenir au moins 8 caractères.",
+    "passwordTooLong": "Le mot de passe doit contenir au plus 128 caractères.",
+    "usernameFormat": "3 à 30 lettres, chiffres, points, tirets ou tirets bas.",
+    "nameTooLong": "80 caractères au plus.",
+    "acceptTerms": "Acceptez les conditions pour créer un compte.",
+    "wrongPassword": "Le mot de passe est incorrect.",
+    "taken": "Ce nom d'utilisateur ou cette adresse e-mail est déjà utilisé.",
+    "tooManyAttempts": "Trop de tentatives. Patientez une minute avant de réessayer.",
+    "generic": "Une erreur est survenue. Réessayez dans un instant.",
+    "unreachable": "Le service est injoignable. Vérifiez votre connexion puis réessayez."
+  },
+  "interaction": {
+    "continueTo": "pour continuer vers {{app}}",
+    "backTo": "Retour à {{app}}",
+    "expiredTitle": "Cette connexion a expiré",
+    "expiredText": "Retournez sur l'application et relancez la connexion.",
+    "toAccount": "Aller à mon compte",
+    "retry": "Réessayer"
+  },
+  "signIn": {
+    "title": "Connexion",
+    "login": "Nom d'utilisateur ou adresse e-mail",
+    "password": "Mot de passe",
+    "forgot": "Mot de passe oublié ?",
+    "submit": "Se connecter",
+    "invalid": "Le nom d'utilisateur ou le mot de passe est incorrect.",
+    "noAccount": "Pas encore de compte ?",
+    "createAccount": "Créer un compte"
+  },
+  "signUp": {
+    "title": "Créer un compte",
+    "givenName": "Prénom",
+    "familyName": "Nom",
+    "username": "Nom d'utilisateur",
+    "usernameHint": "Visible par les personnes avec qui vous partagez dans les applications.",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "passwordHint": "8 caractères au moins.",
+    "accept": "J'accepte les conditions d'utilisation et la politique de confidentialité.",
+    "readTerms": "Lire les conditions et la politique de confidentialité",
+    "submit": "Créer mon compte",
+    "haveAccount": "Déjà un compte ?",
+    "signIn": "Se connecter"
+  },
+  "forgot": {
+    "title": "Mot de passe oublié",
+    "text": "Saisissez l'adresse e-mail de votre compte : vous recevrez un lien pour choisir un nouveau mot de passe.",
+    "email": "Adresse e-mail",
+    "submit": "Envoyer le lien",
+    "sent": "Si un compte utilise cette adresse, un e-mail vient de partir. Le lien reste valable 30 minutes.",
+    "back": "Retour à la connexion"
+  },
+  "reset": {
+    "title": "Nouveau mot de passe",
+    "password": "Nouveau mot de passe",
+    "submit": "Enregistrer",
+    "done": "Votre mot de passe est changé. Pour votre sécurité, vous êtes déconnecté de tous vos appareils et de toutes les applications.",
+    "invalid": "Ce lien n'est plus valable. Demandez-en un nouveau.",
+    "askAgain": "Demander un nouveau lien",
+    "toAccount": "Me connecter"
+  },
+  "account": {
+    "hello": "Bonjour {{name}}",
+    "summary": "{{username}} · {{email}}",
+    "apps": "Vos applications",
+    "appsText": "Ce compte vous connecte à chacune d'elles.",
+    "profile": "Profil",
+    "givenName": "Prénom",
+    "familyName": "Nom",
+    "username": "Nom d'utilisateur",
+    "language": "Langue",
+    "languageHint": "Celle des e-mails et des applications qui la proposent.",
+    "save": "Enregistrer",
+    "saved": "Modifications enregistrées.",
+    "email": "Adresse e-mail",
+    "newEmail": "Nouvelle adresse e-mail",
+    "currentPassword": "Mot de passe actuel",
+    "changeEmail": "Changer d'adresse",
+    "emailChanged": "Adresse e-mail changée.",
+    "password": "Mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "changePassword": "Changer de mot de passe",
+    "passwordChanged": "Mot de passe changé. Vos autres appareils sont déconnectés.",
+    "sessions": "Connexion",
+    "sessionsText": "Se déconnecter ici vous déconnecte de toutes les applications sur cet appareil.",
+    "signOut": "Se déconnecter",
+    "signOutEverywhere": "Se déconnecter de tous les appareils",
+    "delete": "Supprimer le compte",
+    "deleteText": "Votre compte et ce que chaque application garde à votre sujet seront effacés. C'est définitif.",
+    "deleteConfirm": "Saisissez votre mot de passe pour confirmer",
+    "deleteSubmit": "Supprimer définitivement",
+    "terms": "Conditions et confidentialité",
+    "signingIn": "Connexion en cours…"
+  },
+  "signedOut": {
+    "title": "Vous êtes déconnecté",
+    "text": "Vous êtes déconnecté de toutes les applications Synapse sur cet appareil.",
+    "deletedTitle": "Votre compte est supprimé",
+    "deletedText": "Votre compte est effacé, et chaque application a été prévenue pour effacer ce qu'elle gardait à votre sujet.",
+    "signIn": "Me reconnecter"
+  },
+  "terms": {
+    "title": "Conditions d'utilisation et confidentialité",
+    "updated": "Dernière mise à jour : {{date}}",
+    "back": "Retour",
+    "service": {
+      "title": "Le service",
+      "text": "Le compte Synapse vous connecte, avec un seul identifiant, aux applications de Synapse Engineering (entreprise belge), comme Plano et Erudi. Chaque application a ses propres conditions pour ce qu'elle fait de vos données ; ce texte couvre le compte lui-même."
+    },
+    "account": {
+      "title": "Votre compte",
+      "text": "Il faut avoir 13 ans au moins. Vous gardez votre mot de passe secret et êtes responsable de ce qui est fait avec votre compte. Le service est gratuit et fourni tel quel ; il peut évoluer ou s'arrêter, et nous pouvons fermer un compte utilisé pour nuire à d'autres personnes ou au service."
+    },
+    "data": {
+      "title": "Les données gardées",
+      "text": "Votre prénom, votre nom, votre nom d'utilisateur, votre adresse e-mail, votre langue, la date d'acceptation de ces conditions et votre mot de passe, gardé seulement sous forme chiffrée (scrypt) : personne ne peut le relire. Elles servent à vous connecter et sont transmises aux applications que vous ouvrez (identifiant, nom, nom d'utilisateur, adresse e-mail, langue). Votre adresse IP n'est pas enregistrée avec votre compte : elle sert seulement, en mémoire et pendant une minute, à limiter les essais de mots de passe."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Uniquement les cookies nécessaires : celui de votre session, qui dure 30 jours au plus, ceux qui suivent une connexion en cours (une heure au plus) et celui qui protège la connexion à cette page (10 minutes). Aucun traceur, aucune publicité, aucun service tiers : rien n'est chargé depuis un autre site."
+    },
+    "security": {
+      "title": "Sécurité",
+      "text": "Un lien de réinitialisation du mot de passe reste valable 30 minutes et ne sert qu'une fois ; l'utiliser vous déconnecte partout. Les tentatives de connexion répétées sont limitées."
+    },
+    "hosting": {
+      "title": "Hébergement et sauvegardes",
+      "text": "Les données sont hébergées en France chez OVHcloud. Une sauvegarde est faite chaque nuit et gardée 14 jours au plus."
+    },
+    "deletion": {
+      "title": "Supprimer votre compte",
+      "text": "Depuis la page « Mon compte », avec votre mot de passe. Le compte est effacé tout de suite, toutes vos sessions se terminent, et chaque application est prévenue pour effacer ce qu'elle garde à votre sujet. Les sauvegardes disparaissent au plus tard 14 jours après."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "text": "Vous pouvez consulter, corriger, exporter ou effacer vos données, et vous opposer à leur traitement, en écrivant à {{email}}. Vous pouvez aussi vous plaindre auprès de l'Autorité de protection des données."
+    },
+    "authority": "Autorité de protection des données",
+    "law": {
+      "title": "Droit applicable",
+      "text": "Ces conditions relèvent du droit belge ; les tribunaux de Bruxelles sont compétents. Une modification importante vous sera annoncée avant de s'appliquer."
+    }
+  }
+}

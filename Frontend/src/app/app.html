@@ -1,0 +1,12 @@
+<header class="site-header">
+  <span class="site-header__brand">
+    <img src="favicon.svg" alt="" width="32" height="32" />
+    {{ 'site.name' | transloco }}
+  </span>
+</header>
+
+<router-outlet />
+
+<footer class="site-footer">
+  <a class="text-link" routerLink="/terms">{{ 'titles.terms' | transloco }}</a>
+</footer>
