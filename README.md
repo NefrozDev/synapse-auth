@@ -73,7 +73,10 @@ PostgreSQL. AGENTS.md explains the setup.
    certificate, copy `deploy/mailcow-auth.conf` to `data/conf/nginx/auth.conf`, then `nginx -t`
    and reload, as for Plano and Erudi.
 5. **Backups**: add the cron line at the top of `deploy/backup.sh`.
-6. **Check**: open https://auth.synapseengineering.dev/account, create an account, ask for a
+6. **Plano's accounts**, before deploying the Plano version that signs in here (its migration
+   drops the password hashes): `sh deploy/import-plano-accounts.sh`. It keeps every id, name
+   and password, can run again safely, and lists any account it had to skip.
+7. **Check**: open https://auth.synapseengineering.dev/account, create an account, ask for a
    password reset, sign out.
 
 ### Updates
