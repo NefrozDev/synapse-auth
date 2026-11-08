@@ -1,0 +1,24 @@
+# Local development database. Start it with `npm run db:start`.
+# In production the identity service gets its own database and role inside
+# Plano's PostgreSQL container, so this file only mirrors that server's version.
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: identity
+      POSTGRES_PASSWORD: identity
+      POSTGRES_DB: identity
+    ports:
+      # 5432 is Plano's local database and 5433 Erudi's; reachable from this machine only.
+      - '127.0.0.1:5434:5432'
+    volumes:
+      # PostgreSQL 18 images keep their data under /var/lib/postgresql.
+      - db-data:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U identity -d identity']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  db-data:
