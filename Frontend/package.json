@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "e2e:install": "playwright install chromium"
   },
   "private": true,
   "packageManager": "npm@11.12.1",

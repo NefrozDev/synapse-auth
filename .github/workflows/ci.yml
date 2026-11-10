@@ -53,7 +53,8 @@ jobs:
       - run: npm test -- --watch=false
       - run: npm run build
       # Accessibility (WCAG 2.2 AA) in a real browser, against the build just made.
-      - run: npx playwright install --with-deps chromium
+      # The pinned local Playwright, never one npx would fetch.
+      - run: npm run e2e:install -- --with-deps
       - run: npm run e2e
       - if: failure()
         uses: actions/upload-artifact@v4
