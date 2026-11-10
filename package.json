@@ -13,6 +13,7 @@
     "backend:test:e2e": "npm --prefix Backend run test:e2e",
     "frontend:build": "npm --prefix Frontend run build",
     "frontend:lint": "npm --prefix Frontend run lint",
-    "frontend:test": "npm --prefix Frontend test -- --watch=false"
+    "frontend:test": "npm --prefix Frontend test -- --watch=false",
+    "frontend:test:e2e": "npm --prefix Frontend run build && npm --prefix Frontend run e2e"
   }
 }

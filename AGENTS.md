@@ -82,6 +82,13 @@ their own sessions; the provider's session is the single sign-on.
 | Pages (port 4300, proxies `/api` and `/oidc`) | `npm run start:front` |
 | Backend lint, unit and e2e tests, build | `npm run backend:lint`, `backend:test`, `backend:test:e2e`, `backend:build` |
 | Frontend lint, tests, build | `npm run frontend:lint`, `frontend:test`, `frontend:build` |
+| Frontend accessibility (Chromium) | `npm run frontend:test:e2e` |
+
+The pages meet WCAG 2.2 AA. `Frontend/e2e` (Playwright, in CI) opens every page and state of
+`support/screens.ts` against the production build with a mocked API, and checks the automated axe
+rules (desktop and phone), the keyboard (each focus stop has an indicator at 3:1 and is not hidden),
+reflow and text spacing at 320px, and the page's `lang`. A new page or state goes into
+`screens.ts`. Screen readers, reading order and the wording of texts still need a manual check.
 
 Backend tests need Docker: Testcontainers starts PostgreSQL 18 once per run and each suite gets its
 own database. E2e tests stand up a fake app (`startReceiver()`) to receive logout tokens and

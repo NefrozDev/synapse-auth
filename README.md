@@ -25,6 +25,7 @@ the apps running locally.
 ```sh
 npm run backend:lint && npm run backend:test && npm run backend:test:e2e && npm run backend:build
 npm run frontend:lint && npm run frontend:test && npm run frontend:build
+npm run frontend:test:e2e   # accessibility in Chromium (once: npx --prefix Frontend playwright install chromium)
 ```
 
 ## How an app signs in
