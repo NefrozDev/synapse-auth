@@ -1,5 +1,5 @@
-import { test } from '@playwright/test';
-import { expectNoAxeViolations } from './support/axe';
+import { expect, test } from '@playwright/test';
+import { axeViolations } from './support/axe';
 import { openScreen, screens } from './support/screens';
 
 test.describe('every screen meets the automated WCAG 2.2 AA rules', () => {
@@ -10,7 +10,7 @@ test.describe('every screen meets the automated WCAG 2.2 AA rules', () => {
     test(screen.name, async ({ page }) => {
       await openScreen(page, screen);
 
-      await expectNoAxeViolations(page);
+      expect(await axeViolations(page)).toEqual([]);
     });
   }
 });

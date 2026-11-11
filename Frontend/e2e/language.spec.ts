@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { expectNoAxeViolations } from './support/axe';
+import { axeViolations } from './support/axe';
 import { mockApi } from './support/mock-api';
 
 // The pages speak French or English: screen readers pick their voice from the page's lang (3.1.1).
@@ -12,7 +12,7 @@ test.describe('the page language follows the texts', () => {
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Forgotten password');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-    await expectNoAxeViolations(page);
+    expect(await axeViolations(page)).toEqual([]);
   });
 
   test("a sign-in follows the app's language over the browser's", async ({ page }) => {
