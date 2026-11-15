@@ -10,10 +10,14 @@ export interface OutgoingMail {
 
 const DEFAULT_SMTP_PORT = 465;
 
+const REQUIRED_IN_PRODUCTION = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASSWORD'];
+
 /**
  * Sends e-mails through the SMTP server named by SMTP_HOST (in production,
- * Mailcow's). Without SMTP_HOST nothing is sent, so the API still starts on a
- * machine with no mailbox configured; `enabled` tells callers.
+ * Mailcow's). Outside production, without SMTP_HOST nothing is sent, so the
+ * API starts on a machine with no mailbox configured; `enabled` tells callers.
+ * In production the API refuses to start without SMTP: password resets would
+ * otherwise say an e-mail is on its way and send nothing.
  */
 @Injectable()
 export class MailService {
@@ -22,6 +26,16 @@ export class MailService {
   private readonly from: string;
 
   constructor(config: ConfigService) {
+    if (config.get<string>('NODE_ENV') === 'production') {
+      const missing = REQUIRED_IN_PRODUCTION.filter(
+        (name) => !config.get<string>(name)?.trim(),
+      );
+      if (missing.length > 0) {
+        throw new Error(
+          `${missing.join(', ')} must be set in production: password reset e-mails cannot be sent.`,
+        );
+      }
+    }
     const host = config.get<string>('SMTP_HOST')?.trim();
     const port = Number(config.get<string>('SMTP_PORT') ?? DEFAULT_SMTP_PORT);
     const user = config.get<string>('SMTP_USER')?.trim();

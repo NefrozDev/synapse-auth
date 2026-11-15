@@ -83,6 +83,40 @@ describe('MailService', () => {
     );
   });
 
+  it('refuses to start in production without SMTP, naming what is missing', () => {
+    const create = (settings: Record<string, string>) =>
+      new MailService(
+        new ConfigService({ NODE_ENV: 'production', ...settings }),
+      );
+
+    expect(() => create({})).toThrow(
+      'SMTP_HOST, SMTP_USER, SMTP_PASSWORD must be set in production',
+    );
+    // Blank values, as an unfilled .env line gives, count as missing.
+    expect(() =>
+      create({
+        SMTP_HOST: 'mail.example.com',
+        SMTP_USER: ' ',
+        SMTP_PASSWORD: '',
+      }),
+    ).toThrow(/^SMTP_USER, SMTP_PASSWORD must be set/);
+    expect(createTransport).not.toHaveBeenCalled();
+  });
+
+  it('starts in production once SMTP is complete', () => {
+    const service = new MailService(
+      new ConfigService({
+        NODE_ENV: 'production',
+        SMTP_HOST: 'mail.example.com',
+        SMTP_USER: 'noreply@example.com',
+        SMTP_PASSWORD: 'secret',
+      }),
+    );
+
+    expect(service.enabled).toBe(true);
+    expect(createTransport).toHaveBeenCalledTimes(1);
+  });
+
   it('lets sending failures reach the caller', async () => {
     sendMail.mockRejectedValueOnce(new Error('SMTP down'));
     const service = new MailService(

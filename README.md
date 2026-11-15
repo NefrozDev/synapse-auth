@@ -58,12 +58,14 @@ PostgreSQL. AGENTS.md explains the setup.
 1. **GitHub**: create `nefrozdev/synapse-auth` and push `main`. Once CI passes it publishes
    `ghcr.io/nefrozdev/synapse-auth-api` and `synapse-auth-web`; make both packages public.
 2. **DNS** (Cloudflare): an `A` record `auth` to the VPS, DNS only, like `plano`.
-3. **VPS**, as root:
+3. **VPS**, as root. First create the Mailcow mailbox `noreply@synapseengineering.dev`: the API
+   signs in to SMTP with it and sends as it (Mailcow refuses another sender), and it refuses to
+   start in production while `SMTP_HOST`, `SMTP_USER` or `SMTP_PASSWORD` is empty.
 
    ```sh
    git clone <repository URL> /home/ubuntu/synapse-auth && cd /home/ubuntu/synapse-auth
    cp .env.production.example .env && chmod 600 .env
-   node deploy/generate-secrets.mjs   # paste the values into .env, plus the SMTP password
+   node deploy/generate-secrets.mjs   # paste the values into .env, plus the mailbox's SMTP settings
    sh deploy/create-database.sh       # once: the identity role and database
    docker compose -f compose.prod.yaml pull
    docker compose -f compose.prod.yaml up -d --wait
