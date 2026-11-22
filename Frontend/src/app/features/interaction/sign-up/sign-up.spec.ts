@@ -70,7 +70,10 @@ describe('SignUp', () => {
     expect(textOf(host, 'h1')).toBe('Créer un compte');
     expect(host.textContent).toContain('pour continuer vers Plano');
     expect(linkNamed(host, 'Se connecter').getAttribute('href')).toBe('/interaction/uid-1');
-    const terms = linkNamed(host, 'Lire les conditions et la politique de confidentialité');
+    const terms = linkNamed(
+      host,
+      'Lire les conditions générales et la politique de confidentialité',
+    );
     expect(terms.getAttribute('href')).toBe('/terms');
     expect(terms.target).toBe('_blank');
   });

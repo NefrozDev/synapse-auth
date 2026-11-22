@@ -53,8 +53,8 @@
     "email": "Adresse e-mail",
     "password": "Mot de passe",
     "passwordHint": "8 caractères au moins.",
-    "accept": "J'accepte les conditions d'utilisation et la politique de confidentialité.",
-    "readTerms": "Lire les conditions et la politique de confidentialité",
+    "accept": "J'accepte les conditions générales d'utilisation et reconnais avoir pris connaissance de la politique de confidentialité.",
+    "readTerms": "Lire les conditions générales et la politique de confidentialité",
     "submit": "Créer mon compte",
     "haveAccount": "Déjà un compte ?",
     "signIn": "Se connecter"
@@ -117,45 +117,238 @@
     "signIn": "Me reconnecter"
   },
   "terms": {
-    "title": "Conditions d'utilisation et confidentialité",
+    "title": "Conditions générales d'utilisation et politique de confidentialité",
     "updated": "Dernière mise à jour : {{date}}",
+    "intro": "Ce document régit l'utilisation du compte Synapse et de l'ensemble des services de Synapse Engineering. Il comprend les conditions générales d'utilisation, puis la politique de confidentialité, qui en fait partie intégrante.",
+    "contents": "Sommaire",
     "back": "Retour",
-    "service": {
-      "title": "Le service",
-      "text": "Le compte Synapse vous connecte, avec un seul identifiant, aux applications de Synapse Engineering (entreprise belge), comme Plano et Erudi. Chaque application a ses propres conditions pour ce qu'elle fait de vos données ; ce texte couvre le compte lui-même."
+    "conditions": {
+      "title": "Conditions générales d'utilisation",
+      "publisher": {
+        "title": "Éditeur et objet",
+        "intro": "Les présentes conditions générales d'utilisation (les « Conditions ») régissent l'accès et l'utilisation des services en ligne édités par :",
+        "country": "Belgique",
+        "company": "Numéro d'entreprise : {{number}} (RPM Liège, division Namur)",
+        "services": "Les services concernés (les « Services ») sont :",
+        "list": {
+          "account": "le compte Synapse (auth.synapseengineering.dev), identifiant unique donnant accès à toutes les applications de Synapse Engineering ;",
+          "plano": "Plano (plano.synapseengineering.dev), application de planification : listes, agenda, objectifs, groupes et amis ;",
+          "erudi": "Erudi (erudi.synapseengineering.dev), application de révision par la méthode des boîtes de Leitner, avec une bibliothèque de paquets publics ;",
+          "semverSage": "Semver Sage (semversage.synapseengineering.dev), assistant qui répond aux questions sur les frameworks JavaScript, version par version, à partir de leur documentation officielle ;",
+          "portfolio": "le site de Synapse Engineering (www.synapseengineering.dev) et son formulaire de contact."
+        },
+        "scope": "Les Conditions s'appliquent à chacun des Services. Les dispositions propres à un Service y sont expressément identifiées ; aucun Service n'est soumis à des conditions distinctes."
+      },
+      "acceptance": {
+        "title": "Acceptation des Conditions",
+        "account": "La création d'un compte Synapse emporte l'acceptation des Conditions, matérialisée par la case à cocher du formulaire d'inscription. La date de cette acceptation est enregistrée.",
+        "anonymous": "L'utilisation d'un Service sans compte (consultation du site, questions posées à Semver Sage sans connexion) emporte l'acceptation des Conditions applicables à cet usage.",
+        "refusal": "Si vous n'acceptez pas les Conditions, vous devez vous abstenir d'utiliser les Services."
+      },
+      "eligibility": {
+        "title": "Conditions d'accès",
+        "age": "Les Services sont réservés aux personnes âgées d'au moins 13 ans. La personne mineure déclare disposer de l'autorisation de ses représentants légaux, qui répondent de l'usage qu'elle fait des Services.",
+        "underage": "Tout compte dont il apparaît qu'il a été créé par une personne de moins de 13 ans est supprimé."
+      },
+      "account": {
+        "title": "Compte Synapse",
+        "intro": "Le compte Synapse donne accès, avec un identifiant unique, à tous les Services qui requièrent une connexion. Vous vous engagez à :",
+        "list": {
+          "accurate": "fournir des informations exactes et les tenir à jour ;",
+          "personal": "n'ouvrir qu'un compte, à votre nom, et ne pas le céder ni le partager ;",
+          "password": "garder votre mot de passe confidentiel et ne pas le réutiliser sur d'autres services ;",
+          "report": "signaler sans délai à l'adresse de contact toute utilisation non autorisée de votre compte."
+        },
+        "responsibility": "Vous êtes responsable des actions effectuées depuis votre compte, sauf si vous démontrez qu'elles résultent d'une utilisation frauduleuse qui ne vous est pas imputable.",
+        "username": "Votre nom d'utilisateur est visible des autres utilisateurs avec lesquels vous interagissez. Il ne peut reprendre le nom d'une autre personne, une marque dont vous n'êtes pas titulaire ni un terme injurieux."
+      },
+      "conduct": {
+        "title": "Règles d'utilisation",
+        "intro": "Vous vous engagez à utiliser les Services de manière loyale et conforme à la loi. Il est notamment interdit de :",
+        "list": {
+          "illegal": "publier, partager ou stocker un contenu illicite, haineux, violent, discriminatoire, harcelant, pornographique, ou portant atteinte à la vie privée ou aux droits d'autrui ;",
+          "copyright": "reproduire ou diffuser un contenu protégé sans l'autorisation de son titulaire, notamment des extraits de manuels ou de sites payants ;",
+          "impersonate": "vous faire passer pour une autre personne ou une organisation ;",
+          "spam": "envoyer des invitations, demandes d'ami, messages ou publications non sollicités, publicitaires ou en nombre ;",
+          "access": "accéder ou tenter d'accéder sans autorisation à un compte, à des données ou à des systèmes ;",
+          "automate": "utiliser des robots, scripts ou autres moyens automatisés pour créer des comptes, accéder aux Services ou en extraire des données, en dehors des interfaces prévues à cet effet ;",
+          "disrupt": "contourner les limites techniques des Services, en tester la vulnérabilité sans autorisation écrite préalable, y introduire un code malveillant ou en perturber le fonctionnement."
+        },
+        "vulnerabilities": "Toute vulnérabilité découverte doit être signalée à l'adresse de contact, sans être exploitée ni divulguée avant sa correction."
+      },
+      "content": {
+        "title": "Contenus des utilisateurs",
+        "ownership": "Vous conservez l'ensemble de vos droits sur les contenus que vous créez dans les Services : listes, événements, objectifs, commentaires, paquets, cartes, photos et messages.",
+        "licence": "Vous accordez à Synapse Engineering, pour la durée nécessaire à la fourniture des Services, une licence non exclusive, gratuite et mondiale d'héberger, de reproduire, d'adapter techniquement et d'afficher ces contenus, aux seules fins de faire fonctionner les Services et de les montrer aux personnes avec lesquelles vous choisissez de les partager. Cette licence prend fin à la suppression du contenu ou de votre compte, sous réserve de l'alinéa suivant et de la durée de conservation des sauvegardes.",
+        "publication": "Dans Erudi, la publication d'un paquet le rend accessible à tous les utilisateurs, qui peuvent le consulter, s'y entraîner et le copier dans leurs propres paquets ; votre nom d'utilisateur y figure comme auteur. Vous autorisez chaque utilisateur à utiliser, à titre personnel, la copie qu'il en a faite. Cette copie lui appartient et subsiste après le retrait de la publication ou la suppression de votre compte.",
+        "warranty": "Vous garantissez disposer des droits nécessaires sur les contenus que vous partagez ou publiez, et que ces contenus respectent les Conditions. Vous en êtes seul responsable.",
+        "noReview": "Synapse Engineering n'exerce aucun contrôle préalable sur les contenus des utilisateurs et n'en garantit pas l'exactitude. Il vous appartient notamment de vérifier les réponses des paquets publics avant de les apprendre."
+      },
+      "ai": {
+        "title": "Réponses générées par Semver Sage",
+        "generation": "Semver Sage produit ses réponses au moyen d'un modèle de langage exécuté sur les serveurs de Synapse Engineering, à partir d'extraits de la documentation officielle des frameworks, dont il cite les sources. Ces réponses sont générées automatiquement et peuvent être incomplètes, inexactes ou obsolètes.",
+        "verify": "Elles sont fournies à titre informatif. Vérifiez-les auprès des sources citées avant de vous y fier, en particulier pour toute décision affectant un système en production.",
+        "sources": "Les documentations citées restent la propriété de leurs auteurs et sont soumises à leurs propres licences."
+      },
+      "reports": {
+        "title": "Signalement des contenus illicites",
+        "how": "Toute personne peut signaler un contenu qu'elle estime illicite ou contraire aux Conditions, depuis la fonction de signalement du Service lorsqu'elle existe (paquets publics d'Erudi) ou par e-mail à l'adresse de contact. Cette adresse constitue le point de contact unique prévu aux articles 11 et 12 du règlement (UE) 2022/2065 sur les services numériques ; les échanges peuvent avoir lieu en français ou en anglais.",
+        "content": "Le signalement indique, dans la mesure du possible, l'emplacement précis du contenu, les raisons pour lesquelles il est considéré comme illicite, ainsi que les nom et adresse e-mail de son auteur, accompagnés d'une déclaration attestant de sa bonne foi.",
+        "decision": "Chaque signalement est examiné avec diligence et objectivité. Lorsqu'un contenu est retiré ou rendu inaccessible, ou qu'un compte est suspendu, l'utilisateur concerné en est informé, avec les motifs de la décision et les voies de recours. Il peut la contester par e-mail à l'adresse de contact ; la contestation est examinée par une personne. Aucune décision de modération n'est prise de manière entièrement automatisée.",
+        "anonymity": "L'auteur d'un contenu signalé n'est pas informé de l'identité de la personne qui l'a signalé."
+      },
+      "ip": {
+        "title": "Propriété intellectuelle",
+        "ownership": "Les Services, leur code, leurs interfaces, textes, illustrations et logos, ainsi que les noms Synapse Engineering, Plano, Erudi et Semver Sage, sont la propriété de Synapse Engineering ou de ses concédants et sont protégés par le droit de la propriété intellectuelle.",
+        "licence": "Les Conditions vous confèrent un droit personnel, non exclusif, non cessible et révocable d'utiliser les Services conformément à leur destination. Toute autre reproduction, représentation, adaptation ou exploitation est interdite sans l'accord écrit préalable de Synapse Engineering, sous réserve des exceptions prévues par la loi. Lorsque le code source d'un Service est publié sous une licence libre, cette licence s'applique à ce code."
+      },
+      "availability": {
+        "title": "Gratuité, disponibilité et évolution des Services",
+        "free": "Les Services sont fournis gratuitement. L'introduction d'une fonctionnalité payante ferait l'objet de conditions particulières portées préalablement à votre connaissance, et aucun paiement ne vous serait demandé sans votre accord exprès.",
+        "availability": "Synapse Engineering met en œuvre des moyens raisonnables pour assurer l'accès aux Services et la conservation de vos données, sans garantir une disponibilité continue. Les Services peuvent être interrompus pour maintenance, mise à jour ou raison de sécurité. Il vous est recommandé de conserver une copie des données auxquelles vous tenez.",
+        "evolution": "Synapse Engineering peut faire évoluer, limiter ou cesser tout ou partie d'un Service. La fermeture définitive d'un Service est annoncée par e-mail au moins 30 jours à l'avance, afin de vous permettre d'obtenir une copie de vos données."
+      },
+      "liability": {
+        "title": "Responsabilité",
+        "limits": "Les Services sont fournis en l'état. Dans les limites autorisées par la loi, Synapse Engineering n'est pas responsable des dommages indirects, tels qu'une perte de données, de chance ou de profit, résultant de l'utilisation des Services ou de l'impossibilité de les utiliser, ni des contenus publiés par d'autres utilisateurs ou des sites tiers vers lesquels les Services renvoient.",
+        "exceptions": "Ces limitations ne s'appliquent ni en cas de dol, de faute intentionnelle ou de faute lourde de Synapse Engineering, ni en cas d'atteinte à la vie ou à l'intégrité physique. Elles ne privent pas le consommateur des droits que lui reconnaissent les dispositions impératives de la loi, notamment le Code de droit économique.",
+        "user": "Vous êtes responsable des dommages que vous causez à Synapse Engineering ou à des tiers par une utilisation des Services contraire aux Conditions ou à la loi."
+      },
+      "termination": {
+        "title": "Suspension et résiliation",
+        "user": "Vous pouvez mettre fin à l'utilisation des Services à tout moment en supprimant votre compte depuis la page « Mon compte ». La suppression s'étend à tous les Services, selon les modalités décrites dans la politique de confidentialité.",
+        "breach": "En cas de manquement aux Conditions, Synapse Engineering peut, après vous avoir invité à y remédier, retirer un contenu, suspendre ou supprimer votre compte. En cas de manquement grave, notamment un contenu manifestement illicite, une atteinte à la sécurité ou une fraude, ces mesures peuvent être prises sans préavis. Elles sont motivées et peuvent être contestées selon la procédure prévue pour les signalements."
+      },
+      "changes": {
+        "title": "Modification des Conditions",
+        "right": "Synapse Engineering peut modifier les Conditions pour tenir compte de l'évolution des Services ou de la réglementation. La date de la dernière mise à jour figure en tête de ce document.",
+        "notice": "Toute modification substantielle vous est notifiée par e-mail au moins 30 jours avant son entrée en vigueur, sauf lorsqu'elle est imposée par la loi ou nécessaire à la sécurité des Services. Si vous refusez les nouvelles Conditions, vous pouvez supprimer votre compte avant cette date ; la poursuite de l'utilisation des Services après celle-ci vaut acceptation."
+      },
+      "law": {
+        "title": "Droit applicable et litiges",
+        "law": "Les Conditions sont régies par le droit belge. Le consommateur résidant dans un autre État membre de l'Union européenne conserve la protection des dispositions impératives de la loi de son pays de résidence.",
+        "amicable": "En cas de différend, vous êtes invité à contacter d'abord Synapse Engineering afin de rechercher une solution amiable. Le consommateur peut également s'adresser gratuitement au Service de médiation pour le consommateur.",
+        "courts": "À défaut d'accord, les tribunaux de l'arrondissement judiciaire de Namur sont compétents, sans préjudice du droit du consommateur de saisir le juge de son domicile.",
+        "mediation": "Service de médiation pour le consommateur"
+      },
+      "language": {
+        "title": "Langue et dispositions diverses",
+        "language": "Les Conditions sont rédigées en français et traduites en anglais. En cas de divergence, la version française prévaut.",
+        "severability": "La nullité ou l'inapplicabilité d'une clause n'affecte pas la validité des autres. Le fait de ne pas se prévaloir d'un manquement ne vaut pas renonciation à s'en prévaloir ultérieurement.",
+        "contact": "Toute question relative aux Conditions peut être adressée à {{email}}."
+      }
     },
-    "account": {
-      "title": "Votre compte",
-      "text": "Il faut avoir 13 ans au moins. Vous gardez votre mot de passe secret et êtes responsable de ce qui est fait avec votre compte. Le service est gratuit et fourni tel quel ; il peut évoluer ou s'arrêter, et nous pouvons fermer un compte utilisé pour nuire à d'autres personnes ou au service."
-    },
-    "data": {
-      "title": "Les données gardées",
-      "text": "Votre prénom, votre nom, votre nom d'utilisateur, votre adresse e-mail, votre langue, la date d'acceptation de ces conditions et votre mot de passe, gardé seulement sous forme chiffrée (scrypt) : personne ne peut le relire. Elles servent à vous connecter et sont transmises aux applications que vous ouvrez (identifiant, nom, nom d'utilisateur, adresse e-mail, langue). Votre adresse IP n'est pas enregistrée avec votre compte : elle sert seulement, en mémoire et pendant une minute, à limiter les essais de mots de passe."
-    },
-    "cookies": {
-      "title": "Cookies",
-      "text": "Uniquement les cookies nécessaires : celui de votre session, qui dure 30 jours au plus, ceux qui suivent une connexion en cours (une heure au plus) et celui qui protège la connexion à cette page (10 minutes). Aucun traceur, aucune publicité, aucun service tiers : rien n'est chargé depuis un autre site."
-    },
-    "security": {
-      "title": "Sécurité",
-      "text": "Un lien de réinitialisation du mot de passe reste valable 30 minutes et ne sert qu'une fois ; l'utiliser vous déconnecte partout. Les tentatives de connexion répétées sont limitées."
-    },
-    "hosting": {
-      "title": "Hébergement et sauvegardes",
-      "text": "Les données sont hébergées en France chez OVHcloud. Une sauvegarde est faite chaque nuit et gardée 14 jours au plus."
-    },
-    "deletion": {
-      "title": "Supprimer votre compte",
-      "text": "Depuis la page « Mon compte », avec votre mot de passe. Le compte est effacé tout de suite, toutes vos sessions se terminent, et chaque application est prévenue pour effacer ce qu'elle garde à votre sujet. Les sauvegardes disparaissent au plus tard 14 jours après."
-    },
-    "rights": {
-      "title": "Vos droits",
-      "text": "Vous pouvez consulter, corriger, exporter ou effacer vos données, et vous opposer à leur traitement, en écrivant à {{email}}. Vous pouvez aussi vous plaindre auprès de l'Autorité de protection des données."
-    },
-    "authority": "Autorité de protection des données",
-    "law": {
-      "title": "Droit applicable",
-      "text": "Ces conditions relèvent du droit belge ; les tribunaux de Bruxelles sont compétents. Une modification importante vous sera annoncée avant de s'appliquer."
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "controller": {
+        "title": "Responsable du traitement",
+        "controller": "Synapse Engineering SRL, identifiée à l'article « Éditeur et objet », est responsable des traitements de données à caractère personnel effectués dans le cadre des Services, conformément au règlement (UE) 2016/679 (le « RGPD ») et à la loi belge du 30 juillet 2018 relative à la protection des personnes physiques à l'égard des traitements de données à caractère personnel.",
+        "dpo": "Synapse Engineering n'a pas désigné de délégué à la protection des données, cette désignation n'étant pas obligatoire au regard de ses activités. Toute question relative à vos données peut être adressée à {{email}}."
+      },
+      "data": {
+        "title": "Données traitées",
+        "intro": "Seules les données nécessaires à chaque Service sont traitées :",
+        "list": {
+          "account": "Compte Synapse : prénom, nom, nom d'utilisateur, adresse e-mail, langue, date d'acceptation des Conditions, et mot de passe, conservé uniquement sous la forme d'une empreinte (scrypt) qui ne permet pas de le retrouver ; identifiants techniques de vos sessions et des applications auxquelles vous vous êtes connecté.",
+          "plano": "Plano : prénom, nom, nom d'utilisateur et adresse e-mail, recopiés du compte Synapse à chaque connexion ; langue ; photo de profil si vous en ajoutez une ; contenus que vous créez (listes, agenda, objectifs, groupes, amis, commentaires) et notifications.",
+          "erudi": "Erudi : nom d'utilisateur et adresse e-mail, recopiés du compte Synapse à chaque connexion ; langue ; paquets, cartes, réponses et leurs dates, nécessaires à la planification des révisions ; publications, scores aux tests, signalements et compteurs servant aux badges. Le fuseau horaire de votre appareil est transmis à chaque requête pour adapter les révisions à votre journée ; il n'est pas conservé.",
+          "semverSage": "Semver Sage : questions posées et versions choisies, traitées le temps de produire la réponse puis effacées ; si vous vous connectez, votre identifiant et votre nom d'utilisateur, pour la durée de la session. Un fichier package.json que vous sélectionnez est lu dans votre navigateur et n'est pas envoyé : seules les versions qui y sont détectées accompagnent votre question.",
+          "portfolio": "Site de Synapse Engineering : si vous vous connectez, votre nom d'utilisateur, conservé dans votre navigateur jusqu'à l'expiration de la connexion ; si vous utilisez le formulaire de contact, votre nom, votre message et, si vous les indiquez, votre adresse e-mail et votre numéro de téléphone, ainsi qu'une empreinte de votre adresse IP servant à limiter les abus.",
+          "technical": "Données techniques : votre adresse IP est utilisée en mémoire, pendant une minute, pour limiter les tentatives de connexion et les requêtes abusives ; elle n'est pas enregistrée avec votre compte."
+        },
+        "required": "Les données du compte sont nécessaires à la conclusion du contrat : sans elles, le compte ne peut être créé. L'adresse e-mail et le numéro de téléphone du formulaire de contact sont facultatifs.",
+        "sensitive": "Les Services ne sont pas conçus pour traiter des catégories particulières de données (santé, opinions politiques ou religieuses, etc.). Il vous est demandé de ne pas en inclure dans vos contenus."
+      },
+      "purposes": {
+        "title": "Finalités et bases légales",
+        "intro": "Vos données sont traitées pour les finalités suivantes :",
+        "list": {
+          "service": "fournir les Services que vous demandez, gérer votre compte et votre connexion unique aux applications, et partager vos contenus avec les personnes que vous choisissez : exécution du contrat (article 6.1.b du RGPD) ;",
+          "email": "vous adresser les e-mails nécessaires au compte, tels que la réinitialisation du mot de passe ou l'annonce d'une modification des Conditions : exécution du contrat (article 6.1.b) ;",
+          "security": "protéger les Services et leurs utilisateurs contre la fraude, les abus et les attaques, et traiter les signalements : intérêt légitime de Synapse Engineering et de ses utilisateurs à la sécurité des Services (article 6.1.f) ;",
+          "contact": "répondre aux messages envoyés par le formulaire de contact : mesures précontractuelles prises à votre demande ou intérêt légitime à vous répondre (articles 6.1.b et 6.1.f) ;",
+          "legal": "respecter les obligations légales de Synapse Engineering et répondre aux demandes des autorités compétentes : obligation légale (article 6.1.c)."
+        },
+        "commitments": "Vos données ne sont ni vendues, ni louées, ni utilisées à des fins publicitaires ou de profilage, et ne servent pas à entraîner de modèle d'intelligence artificielle. Aucune lettre d'information n'est envoyée. Aucune décision produisant des effets juridiques à votre égard n'est fondée exclusivement sur un traitement automatisé."
+      },
+      "recipients": {
+        "title": "Destinataires",
+        "apps": "Lorsque vous vous connectez à une application, le compte Synapse lui transmet, selon ses besoins, votre identifiant, vos prénom et nom, votre nom d'utilisateur, votre adresse e-mail et votre langue. Toutes ces applications sont éditées par Synapse Engineering.",
+        "users": "Les autres utilisateurs n'ont accès qu'à ce que vous choisissez de partager. Dans Plano, les personnes avec qui vous partagez (amis, membres de vos groupes, invités d'une liste ou d'un objectif) voient vos prénom, nom, nom d'utilisateur et photo, ainsi que les contenus partagés. Dans Erudi, les paquets publiés et votre nom d'utilisateur sont visibles de tous. Votre adresse e-mail n'est jamais montrée aux autres utilisateurs.",
+        "processors": "Synapse Engineering fait appel aux prestataires suivants, liés par un contrat conforme à l'article 28 du RGPD :",
+        "list": {
+          "ovh": "OVH SAS (France) : hébergement du compte Synapse, de Plano, d'Erudi et de Semver Sage, de leurs bases de données et sauvegardes, et du serveur de messagerie qui envoie les e-mails du compte ;",
+          "vercel": "Vercel Inc. (États-Unis) : hébergement du site de Synapse Engineering et de son formulaire de contact ;",
+          "neon": "Neon (États-Unis) : base de données des messages du formulaire de contact ;",
+          "resend": "Resend Inc. (États-Unis) : acheminement des messages du formulaire de contact vers Synapse Engineering."
+        },
+        "fonts": "Semver Sage charge ses polices de caractères depuis Google Fonts : votre navigateur communique alors votre adresse IP à Google Ireland Limited et Google LLC.",
+        "authorities": "Vos données peuvent enfin être communiquées aux autorités publiques lorsque la loi l'exige."
+      },
+      "transfers": {
+        "title": "Transferts hors de l'Union européenne",
+        "eu": "Les données du compte Synapse, de Plano, d'Erudi et de Semver Sage sont hébergées en France et ne quittent pas l'Union européenne, sous réserve du chargement des polices de Semver Sage.",
+        "us": "Les données traitées par le site de Synapse Engineering et son formulaire de contact peuvent être transférées aux États-Unis par Vercel, Neon et Resend, de même que l'adresse IP communiquée à Google. Ces transferts reposent sur la décision d'adéquation de la Commission européenne relative au cadre de protection des données UE–États-Unis pour les entreprises certifiées, et à défaut sur les clauses contractuelles types adoptées par la Commission (article 46 du RGPD), dont une copie peut être obtenue à l'adresse de contact."
+      },
+      "retention": {
+        "title": "Durées de conservation",
+        "list": {
+          "account": "compte Synapse et données des applications : tant que le compte existe ; elles sont effacées dès sa suppression ;",
+          "sessions": "sessions du compte Synapse et des applications : 30 jours au plus ; connexion en cours : une heure au plus ; lien de réinitialisation du mot de passe : 30 minutes ;",
+          "questions": "questions posées à Semver Sage : le temps de produire la réponse ;",
+          "copies": "copies de paquets publics d'Erudi : conservées par l'utilisateur qui les a faites, dans son propre compte ;",
+          "notices": "avis de suppression adressés aux applications : jusqu'à leur réception, et au plus 14 jours ;",
+          "contact": "messages du formulaire de contact : le temps de traiter la demande et d'assurer le suivi de l'échange, et au plus trois ans après le dernier échange ;",
+          "ip": "adresse IP utilisée pour limiter les abus : une minute ;",
+          "backups": "sauvegardes du compte Synapse, de Plano et d'Erudi : réalisées chaque nuit et conservées 14 jours au plus ; une donnée supprimée en disparaît dans ce délai."
+        },
+        "litigation": "Les données nécessaires à la constatation, à l'exercice ou à la défense d'un droit en justice peuvent être conservées jusqu'à l'expiration du délai de prescription applicable."
+      },
+      "cookies": {
+        "title": "Cookies et stockage local",
+        "necessary": "Les Services n'utilisent que des cookies et un stockage local strictement nécessaires à leur fonctionnement, dispensés de consentement en application de l'article 5.3 de la directive 2002/58/CE et de sa transposition en droit belge. Aucun cookie de mesure d'audience, de publicité ou de réseau social n'est utilisé.",
+        "list": {
+          "account": "compte Synapse : cookie de session (30 jours au plus), cookies d'une connexion en cours (une heure au plus) et cookie protégeant la connexion à la page « Mon compte » (10 minutes) ;",
+          "plano": "Plano : cookie de session (30 jours au plus) et cookie de connexion en cours (10 minutes) ; stockage local de votre langue et d'une copie de vos données propre à votre compte, utilisée pour l'affichage ;",
+          "erudi": "Erudi : cookie de session (30 jours au plus) et cookies de connexion en cours (15 minutes au plus) ; stockage local de l'introduction vue et du son choisi pour les réponses ;",
+          "semverSage": "Semver Sage : cookie de session si vous vous connectez (30 jours au plus) et cookie de connexion en cours (10 minutes) ;",
+          "portfolio": "site de Synapse Engineering : stockage local de la langue choisie ; stockage de session du nom d'utilisateur et de la connexion en cours, effacé à la fermeture de l'onglet."
+        },
+        "control": "Vous pouvez supprimer ces données depuis les réglages de votre navigateur ; vous serez alors déconnecté."
+      },
+      "security": {
+        "title": "Sécurité",
+        "measures": "Synapse Engineering met en œuvre des mesures techniques et organisationnelles appropriées : chiffrement des échanges (HTTPS), empreinte des mots de passe (scrypt), jetons signés entre le compte et les applications, limitation des tentatives de connexion, bases de données distinctes pour chaque application et sauvegardes quotidiennes. Un lien de réinitialisation du mot de passe ne sert qu'une fois et met fin à toutes vos sessions.",
+        "breach": "En cas de violation de données susceptible d'engendrer un risque pour vos droits, Synapse Engineering la notifie à l'Autorité de protection des données dans les 72 heures et vous en informe lorsque la loi l'exige."
+      },
+      "deletion": {
+        "title": "Suppression du compte",
+        "how": "Vous pouvez supprimer votre compte à tout moment depuis la page « Mon compte », en confirmant avec votre mot de passe. Le compte est effacé immédiatement, toutes vos sessions prennent fin et chaque application est avertie afin d'effacer les données qu'elle détient à votre sujet : dans Plano, vos listes, objectifs, groupes créés, agenda, amis et notifications, votre nom disparaissant de ce que vous partagiez ; dans Erudi, vos paquets, cartes, progression, publications, scores, compteurs et signalements ; dans Semver Sage, vos sessions.",
+        "backups": "Les données effacées disparaissent des sauvegardes au plus tard 14 jours après la suppression."
+      },
+      "rights": {
+        "title": "Vos droits",
+        "intro": "Vous disposez, dans les conditions prévues par le RGPD, des droits suivants :",
+        "list": {
+          "access": "droit d'accès à vos données et d'en obtenir une copie (article 15) ;",
+          "rectification": "droit de rectification (article 16) : vos nom, nom d'utilisateur, adresse e-mail et langue se modifient aussi directement depuis la page « Mon compte » ;",
+          "erasure": "droit à l'effacement (article 17), notamment par la suppression de votre compte ;",
+          "restriction": "droit à la limitation du traitement (article 18) ;",
+          "portability": "droit à la portabilité des données que vous avez fournies, dans un format structuré et lisible par machine (article 20) ;",
+          "objection": "droit d'opposition, pour des raisons tenant à votre situation particulière, aux traitements fondés sur l'intérêt légitime (article 21)."
+        },
+        "exercise": "Pour exercer ces droits, écrivez à {{email}}, de préférence depuis l'adresse associée à votre compte. Une réponse vous est apportée dans un délai d'un mois, qui peut être prolongé de deux mois compte tenu de la complexité ou du nombre de demandes ; vous en êtes alors informé. En cas de doute raisonnable sur votre identité, des informations complémentaires peuvent vous être demandées.",
+        "complaint": "Vous pouvez introduire une réclamation auprès de l'Autorité de protection des données (rue de la Presse 35, 1000 Bruxelles) ou de l'autorité de contrôle de l'État membre de votre résidence.",
+        "authority": "Autorité de protection des données"
+      },
+      "minors": {
+        "title": "Mineurs",
+        "text": "Les Services ne s'adressent pas aux enfants de moins de 13 ans, et leurs données sont supprimées dès que leur présence est constatée. Les représentants légaux d'un mineur peuvent exercer ses droits en son nom à l'adresse de contact."
+      },
+      "updates": {
+        "title": "Modification de la politique",
+        "text": "Cette politique est mise à jour lorsque les traitements évoluent. Toute modification substantielle est notifiée par e-mail au moins 30 jours avant son entrée en vigueur, sauf obligation légale contraire."
+      }
     }
   }
 }

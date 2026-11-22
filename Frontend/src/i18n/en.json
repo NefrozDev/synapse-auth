@@ -53,8 +53,8 @@
     "email": "E-mail address",
     "password": "Password",
     "passwordHint": "At least 8 characters.",
-    "accept": "I accept the terms of use and the privacy policy.",
-    "readTerms": "Read the terms and the privacy policy",
+    "accept": "I accept the terms of use and acknowledge that I have read the privacy policy.",
+    "readTerms": "Read the terms of use and the privacy policy",
     "submit": "Create my account",
     "haveAccount": "Already have an account?",
     "signIn": "Sign in"
@@ -117,45 +117,238 @@
     "signIn": "Sign in again"
   },
   "terms": {
-    "title": "Terms of use and privacy",
+    "title": "Terms of use and privacy policy",
     "updated": "Last updated: {{date}}",
+    "intro": "This document governs the use of the Synapse account and of every Synapse Engineering service. It contains the terms of use, followed by the privacy policy, which forms an integral part of them.",
+    "contents": "Contents",
     "back": "Back",
-    "service": {
-      "title": "The service",
-      "text": "The Synapse account signs you in, with one login, to the apps of Synapse Engineering (a Belgian company), such as Plano and Erudi. Each app has its own terms for what it does with your data; this text covers the account itself."
+    "conditions": {
+      "title": "Terms of use",
+      "publisher": {
+        "title": "Publisher and purpose",
+        "intro": "These terms of use (the \"Terms\") govern access to and use of the online services published by:",
+        "country": "Belgium",
+        "company": "Enterprise number: {{number}} (Register of legal entities of Liège, Namur division)",
+        "services": "The services concerned (the \"Services\") are:",
+        "list": {
+          "account": "the Synapse account (auth.synapseengineering.dev), a single login giving access to every Synapse Engineering app;",
+          "plano": "Plano (plano.synapseengineering.dev), a planning app: lists, calendar, objectives, groups and friends;",
+          "erudi": "Erudi (erudi.synapseengineering.dev), a revision app based on the Leitner box method, with a library of public decks;",
+          "semverSage": "Semver Sage (semversage.synapseengineering.dev), an assistant that answers questions about JavaScript frameworks, version by version, from their official documentation;",
+          "portfolio": "the Synapse Engineering website (www.synapseengineering.dev) and its contact form."
+        },
+        "scope": "The Terms apply to each of the Services. Provisions specific to one Service are expressly identified as such; no Service is subject to separate terms."
+      },
+      "acceptance": {
+        "title": "Acceptance of the Terms",
+        "account": "Creating a Synapse account constitutes acceptance of the Terms, given by ticking the box on the sign-up form. The date of that acceptance is recorded.",
+        "anonymous": "Using a Service without an account (browsing the website, asking Semver Sage questions without signing in) constitutes acceptance of the Terms applicable to that use.",
+        "refusal": "If you do not accept the Terms, you must refrain from using the Services."
+      },
+      "eligibility": {
+        "title": "Eligibility",
+        "age": "The Services are reserved for people aged 13 or over. A minor represents that they have the permission of their legal representatives, who are answerable for the minor's use of the Services.",
+        "underage": "Any account found to have been created by a person under 13 is deleted."
+      },
+      "account": {
+        "title": "Synapse account",
+        "intro": "The Synapse account gives access, with a single login, to every Service that requires signing in. You undertake to:",
+        "list": {
+          "accurate": "provide accurate information and keep it up to date;",
+          "personal": "open only one account, in your own name, and not transfer or share it;",
+          "password": "keep your password confidential and not reuse it on other services;",
+          "report": "report any unauthorised use of your account to the contact address without delay."
+        },
+        "responsibility": "You are responsible for actions taken from your account, unless you show that they result from fraudulent use for which you are not to blame.",
+        "username": "Your username is visible to the other users you interact with. It may not use another person's name, a trademark you do not own, or an offensive term."
+      },
+      "conduct": {
+        "title": "Rules of use",
+        "intro": "You undertake to use the Services fairly and lawfully. In particular, you may not:",
+        "list": {
+          "illegal": "publish, share or store content that is unlawful, hateful, violent, discriminatory, harassing or pornographic, or that infringes the privacy or rights of others;",
+          "copyright": "reproduce or distribute protected content without the rights holder's permission, including excerpts from textbooks or paid websites;",
+          "impersonate": "impersonate another person or an organisation;",
+          "spam": "send unsolicited, promotional or bulk invitations, friend requests, messages or publications;",
+          "access": "access or attempt to access an account, data or systems without authorisation;",
+          "automate": "use bots, scripts or other automated means to create accounts, access the Services or extract data from them, outside the interfaces provided for that purpose;",
+          "disrupt": "circumvent the technical limits of the Services, test their vulnerability without prior written permission, introduce malicious code or disrupt their operation."
+        },
+        "vulnerabilities": "Any vulnerability you discover must be reported to the contact address, without exploiting or disclosing it before it is fixed."
+      },
+      "content": {
+        "title": "User content",
+        "ownership": "You keep all your rights to the content you create in the Services: lists, events, objectives, comments, decks, cards, pictures and messages.",
+        "licence": "You grant Synapse Engineering, for as long as necessary to provide the Services, a non-exclusive, royalty-free, worldwide licence to host, reproduce, technically adapt and display that content, solely to operate the Services and to show it to the people you choose to share it with. This licence ends when the content or your account is deleted, subject to the next paragraph and to the retention period of backups.",
+        "publication": "In Erudi, publishing a deck makes it available to every user, who may view it, practise with it and copy it into their own decks; your username appears as its author. You authorise each user to use the copy they made for personal purposes. That copy belongs to them and remains after the deck is unpublished or your account is deleted.",
+        "warranty": "You warrant that you hold the rights needed for the content you share or publish, and that this content complies with the Terms. You alone are responsible for it.",
+        "noReview": "Synapse Engineering does not review user content in advance and does not guarantee its accuracy. In particular, you should check the answers in public decks before learning them."
+      },
+      "ai": {
+        "title": "Answers generated by Semver Sage",
+        "generation": "Semver Sage produces its answers with a language model running on Synapse Engineering's servers, from excerpts of the frameworks' official documentation, whose sources it cites. These answers are generated automatically and may be incomplete, inaccurate or out of date.",
+        "verify": "They are provided for information only. Check them against the cited sources before relying on them, especially for any decision affecting a production system.",
+        "sources": "The documentation cited remains the property of its authors and is subject to its own licences."
+      },
+      "reports": {
+        "title": "Reporting illegal content",
+        "how": "Anyone may report content they consider illegal or contrary to the Terms, through the Service's reporting feature where one exists (Erudi's public decks) or by e-mail to the contact address. That address is the single point of contact required by Articles 11 and 12 of Regulation (EU) 2022/2065 on digital services; communication may take place in French or English.",
+        "content": "A report states, as far as possible, the exact location of the content, the reasons it is considered illegal, and the name and e-mail address of the person reporting it, together with a statement confirming their good faith.",
+        "decision": "Each report is examined diligently and objectively. When content is removed or disabled, or an account is suspended, the user concerned is informed of the reasons for the decision and of the available remedies. They may contest it by e-mail to the contact address; the appeal is examined by a person. No moderation decision is taken by wholly automated means.",
+        "anonymity": "The author of reported content is not told who reported it."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "ownership": "The Services, their code, interfaces, texts, illustrations and logos, and the names Synapse Engineering, Plano, Erudi and Semver Sage, belong to Synapse Engineering or its licensors and are protected by intellectual property law.",
+        "licence": "The Terms grant you a personal, non-exclusive, non-transferable and revocable right to use the Services for their intended purpose. Any other reproduction, representation, adaptation or exploitation is prohibited without Synapse Engineering's prior written consent, subject to the exceptions provided by law. Where the source code of a Service is published under an open-source licence, that licence applies to that code."
+      },
+      "availability": {
+        "title": "Free of charge, availability and changes to the Services",
+        "free": "The Services are provided free of charge. Any paid feature would be subject to specific terms brought to your attention beforehand, and no payment would be requested without your express agreement.",
+        "availability": "Synapse Engineering uses reasonable means to keep the Services accessible and your data preserved, without guaranteeing uninterrupted availability. The Services may be interrupted for maintenance, updates or security reasons. You are advised to keep a copy of any data you value.",
+        "evolution": "Synapse Engineering may change, limit or discontinue all or part of a Service. The permanent closure of a Service is announced by e-mail at least 30 days in advance, so that you can obtain a copy of your data."
+      },
+      "liability": {
+        "title": "Liability",
+        "limits": "The Services are provided as is. To the extent permitted by law, Synapse Engineering is not liable for indirect damage, such as loss of data, opportunity or profit, resulting from the use of or inability to use the Services, nor for content published by other users or by third-party sites the Services link to.",
+        "exceptions": "These limitations do not apply in the event of fraud, wilful misconduct or gross negligence by Synapse Engineering, or of harm to life or physical integrity. They do not deprive consumers of the rights granted to them by mandatory provisions of law, in particular the Belgian Code of Economic Law.",
+        "user": "You are liable for any damage you cause to Synapse Engineering or to third parties by using the Services in breach of the Terms or of the law."
+      },
+      "termination": {
+        "title": "Suspension and termination",
+        "user": "You may stop using the Services at any time by deleting your account from the \"My account\" page. Deletion covers every Service, as described in the privacy policy.",
+        "breach": "In the event of a breach of the Terms, Synapse Engineering may, after asking you to remedy it, remove content, or suspend or delete your account. In the event of a serious breach, including manifestly illegal content, a security threat or fraud, these measures may be taken without notice. They are reasoned and may be contested through the procedure provided for reports."
+      },
+      "changes": {
+        "title": "Changes to the Terms",
+        "right": "Synapse Engineering may amend the Terms to reflect changes to the Services or to the law. The date of the latest update appears at the top of this document.",
+        "notice": "Any substantial change is notified to you by e-mail at least 30 days before it takes effect, unless it is required by law or necessary for the security of the Services. If you refuse the new Terms, you may delete your account before that date; continuing to use the Services after it constitutes acceptance."
+      },
+      "law": {
+        "title": "Governing law and disputes",
+        "law": "The Terms are governed by Belgian law. Consumers residing in another Member State of the European Union keep the protection of the mandatory provisions of the law of their country of residence.",
+        "amicable": "In the event of a dispute, you are invited to contact Synapse Engineering first to seek an amicable solution. Consumers may also refer the matter free of charge to the Belgian Consumer Mediation Service.",
+        "courts": "Failing agreement, the courts of the judicial district of Namur have jurisdiction, without prejudice to the consumer's right to bring proceedings before the courts of their place of residence.",
+        "mediation": "Consumer Mediation Service"
+      },
+      "language": {
+        "title": "Language and miscellaneous provisions",
+        "language": "The Terms are written in French and translated into English. In the event of any discrepancy, the French version prevails.",
+        "severability": "If a clause is held void or unenforceable, the other clauses remain in force. Failure to enforce a breach does not waive the right to enforce it later.",
+        "contact": "Any question about the Terms may be sent to {{email}}."
+      }
     },
-    "account": {
-      "title": "Your account",
-      "text": "You must be 13 or older. You keep your password secret and are responsible for what is done with your account. The service is free and provided as is; it may change or stop, and we may close an account used to harm other people or the service."
-    },
-    "data": {
-      "title": "The data kept",
-      "text": "Your first and last name, username, e-mail address, language, the date you accepted these terms, and your password, kept only in hashed form (scrypt): nobody can read it back. They are used to sign you in and are passed to the apps you open (identifier, name, username, e-mail address, language). Your IP address is not stored with your account: it is only used, in memory and for one minute, to limit password guesses."
-    },
-    "cookies": {
-      "title": "Cookies",
-      "text": "Only the cookies that are needed: your session's, which lasts 30 days at most, those that follow a sign-in in progress (one hour at most) and the one protecting the sign-in to this page (10 minutes). No trackers, no advertising, no third-party service: nothing is loaded from another site."
-    },
-    "security": {
-      "title": "Security",
-      "text": "A password reset link stays valid for 30 minutes and works once; using it signs you out everywhere. Repeated sign-in attempts are limited."
-    },
-    "hosting": {
-      "title": "Hosting and backups",
-      "text": "The data is hosted in France by OVHcloud. A backup is made every night and kept 14 days at most."
-    },
-    "deletion": {
-      "title": "Deleting your account",
-      "text": "From the \"My account\" page, with your password. The account is erased at once, all your sessions end, and each app is told to erase what it keeps about you. Backups are gone at most 14 days later."
-    },
-    "rights": {
-      "title": "Your rights",
-      "text": "You can view, correct, export or erase your data, and object to its processing, by writing to {{email}}. You can also complain to the Belgian Data Protection Authority."
-    },
-    "authority": "Data Protection Authority",
-    "law": {
-      "title": "Governing law",
-      "text": "These terms are governed by Belgian law; the courts of Brussels have jurisdiction. Any significant change will be announced before it applies."
+    "privacy": {
+      "title": "Privacy policy",
+      "controller": {
+        "title": "Data controller",
+        "controller": "Synapse Engineering SRL, identified in the \"Publisher and purpose\" article, is the controller of the personal data processed in the course of the Services, in accordance with Regulation (EU) 2016/679 (the \"GDPR\") and the Belgian Act of 30 July 2018 on the protection of natural persons with regard to the processing of personal data.",
+        "dpo": "Synapse Engineering has not appointed a data protection officer, as its activities do not require one. Any question about your data may be sent to {{email}}."
+      },
+      "data": {
+        "title": "Data processed",
+        "intro": "Only the data each Service needs is processed:",
+        "list": {
+          "account": "Synapse account: first name, last name, username, e-mail address, language, date of acceptance of the Terms, and password, kept only as a hash (scrypt) from which it cannot be recovered; technical identifiers of your sessions and of the apps you have signed in to.",
+          "plano": "Plano: first name, last name, username and e-mail address, copied from the Synapse account at each sign-in; language; profile picture if you add one; the content you create (lists, calendar, objectives, groups, friends, comments) and notifications.",
+          "erudi": "Erudi: username and e-mail address, copied from the Synapse account at each sign-in; language; decks, cards, answers and their dates, needed to schedule revisions; publications, test scores, reports and the counters behind badges. Your device's time zone is sent with each request so that revisions follow your day; it is not stored.",
+          "semverSage": "Semver Sage: the questions you ask and the versions you choose, processed while the answer is produced and then discarded; if you sign in, your identifier and username, for the duration of the session. A package.json file you select is read in your browser and is not sent: only the versions detected in it accompany your question.",
+          "portfolio": "Synapse Engineering website: if you sign in, your username, kept in your browser until the sign-in expires; if you use the contact form, your name, your message and, if you provide them, your e-mail address and phone number, together with a hash of your IP address used to limit abuse.",
+          "technical": "Technical data: your IP address is used in memory, for one minute, to limit sign-in attempts and abusive requests; it is not stored with your account."
+        },
+        "required": "Account data is necessary to enter into the contract: without it, the account cannot be created. The e-mail address and phone number on the contact form are optional.",
+        "sensitive": "The Services are not designed to process special categories of data (health, political or religious opinions, etc.). Please do not include any in your content."
+      },
+      "purposes": {
+        "title": "Purposes and legal bases",
+        "intro": "Your data is processed for the following purposes:",
+        "list": {
+          "service": "providing the Services you request, managing your account and your single sign-on to the apps, and sharing your content with the people you choose: performance of the contract (Article 6(1)(b) GDPR);",
+          "email": "sending you the e-mails the account requires, such as password resets or notice of a change to the Terms: performance of the contract (Article 6(1)(b));",
+          "security": "protecting the Services and their users against fraud, abuse and attacks, and handling reports: legitimate interest of Synapse Engineering and its users in the security of the Services (Article 6(1)(f));",
+          "contact": "answering messages sent through the contact form: pre-contractual steps taken at your request or legitimate interest in replying to you (Articles 6(1)(b) and 6(1)(f));",
+          "legal": "complying with Synapse Engineering's legal obligations and answering requests from competent authorities: legal obligation (Article 6(1)(c))."
+        },
+        "commitments": "Your data is not sold, rented, used for advertising or profiling, or used to train any artificial intelligence model. No newsletter is sent. No decision producing legal effects concerning you is based solely on automated processing."
+      },
+      "recipients": {
+        "title": "Recipients",
+        "apps": "When you sign in to an app, the Synapse account passes it, as needed, your identifier, first and last name, username, e-mail address and language. All these apps are published by Synapse Engineering.",
+        "users": "Other users only see what you choose to share. In Plano, the people you share with (friends, members of your groups, people invited to a list or an objective) see your first and last name, username and picture, and the shared content. In Erudi, published decks and your username are visible to everyone. Your e-mail address is never shown to other users.",
+        "processors": "Synapse Engineering uses the following providers, bound by a contract complying with Article 28 GDPR:",
+        "list": {
+          "ovh": "OVH SAS (France): hosting of the Synapse account, Plano, Erudi and Semver Sage, of their databases and backups, and of the mail server that sends the account's e-mails;",
+          "vercel": "Vercel Inc. (United States): hosting of the Synapse Engineering website and its contact form;",
+          "neon": "Neon (United States): database of the messages sent through the contact form;",
+          "resend": "Resend Inc. (United States): delivery of contact form messages to Synapse Engineering."
+        },
+        "fonts": "Semver Sage loads its fonts from Google Fonts: your browser then sends your IP address to Google Ireland Limited and Google LLC.",
+        "authorities": "Finally, your data may be disclosed to public authorities where the law requires it."
+      },
+      "transfers": {
+        "title": "Transfers outside the European Union",
+        "eu": "The data of the Synapse account, Plano, Erudi and Semver Sage is hosted in France and does not leave the European Union, except for the loading of Semver Sage's fonts.",
+        "us": "Data processed by the Synapse Engineering website and its contact form may be transferred to the United States by Vercel, Neon and Resend, as may the IP address sent to Google. These transfers rely on the European Commission's adequacy decision on the EU–US Data Privacy Framework for certified companies and, failing that, on the standard contractual clauses adopted by the Commission (Article 46 GDPR), a copy of which may be obtained from the contact address."
+      },
+      "retention": {
+        "title": "Retention periods",
+        "list": {
+          "account": "Synapse account and app data: as long as the account exists; it is erased as soon as the account is deleted;",
+          "sessions": "sessions of the Synapse account and of the apps: 30 days at most; sign-in in progress: one hour at most; password reset link: 30 minutes;",
+          "questions": "questions asked to Semver Sage: while the answer is produced;",
+          "copies": "copies of Erudi's public decks: kept by the user who made them, in their own account;",
+          "notices": "deletion notices sent to the apps: until they are received, and 14 days at most;",
+          "contact": "contact form messages: as long as needed to handle the request and follow up on the exchange, and at most three years after the last exchange;",
+          "ip": "IP address used to limit abuse: one minute;",
+          "backups": "backups of the Synapse account, Plano and Erudi: made every night and kept 14 days at most; deleted data disappears from them within that period."
+        },
+        "litigation": "Data needed to establish, exercise or defend legal claims may be kept until the applicable limitation period expires."
+      },
+      "cookies": {
+        "title": "Cookies and local storage",
+        "necessary": "The Services only use cookies and local storage that are strictly necessary for them to work, which are exempt from consent under Article 5(3) of Directive 2002/58/EC and its transposition into Belgian law. No analytics, advertising or social media cookie is used.",
+        "list": {
+          "account": "Synapse account: session cookie (30 days at most), cookies for a sign-in in progress (one hour at most) and a cookie protecting the sign-in to the \"My account\" page (10 minutes);",
+          "plano": "Plano: session cookie (30 days at most) and sign-in cookie (10 minutes); local storage of your language and of a copy of your data specific to your account, used for display;",
+          "erudi": "Erudi: session cookie (30 days at most) and sign-in cookies (15 minutes at most); local storage of whether you have seen the introduction and of the sound chosen for answers;",
+          "semverSage": "Semver Sage: session cookie if you sign in (30 days at most) and sign-in cookie (10 minutes);",
+          "portfolio": "Synapse Engineering website: local storage of the chosen language; session storage of the username and of the sign-in in progress, cleared when the tab is closed."
+        },
+        "control": "You can delete this data from your browser settings; you will then be signed out."
+      },
+      "security": {
+        "title": "Security",
+        "measures": "Synapse Engineering implements appropriate technical and organisational measures: encrypted connections (HTTPS), password hashing (scrypt), signed tokens between the account and the apps, limits on sign-in attempts, a separate database for each app, and daily backups. A password reset link works only once and ends all your sessions.",
+        "breach": "In the event of a data breach likely to result in a risk to your rights, Synapse Engineering notifies the Data Protection Authority within 72 hours and informs you where the law requires it."
+      },
+      "deletion": {
+        "title": "Deleting your account",
+        "how": "You may delete your account at any time from the \"My account\" page, confirming with your password. The account is erased at once, all your sessions end, and each app is notified so that it erases the data it holds about you: in Plano, your lists, objectives, groups you created, calendar, friends and notifications, your name disappearing from what you shared; in Erudi, your decks, cards, progress, publications, scores, counters and reports; in Semver Sage, your sessions.",
+        "backups": "Erased data disappears from backups at most 14 days after the deletion."
+      },
+      "rights": {
+        "title": "Your rights",
+        "intro": "Under the conditions laid down by the GDPR, you have the following rights:",
+        "list": {
+          "access": "right of access to your data and to obtain a copy of it (Article 15);",
+          "rectification": "right to rectification (Article 16): your name, username, e-mail address and language can also be changed directly from the \"My account\" page;",
+          "erasure": "right to erasure (Article 17), in particular by deleting your account;",
+          "restriction": "right to restriction of processing (Article 18);",
+          "portability": "right to portability of the data you provided, in a structured, machine-readable format (Article 20);",
+          "objection": "right to object, on grounds relating to your particular situation, to processing based on legitimate interest (Article 21)."
+        },
+        "exercise": "To exercise these rights, write to {{email}}, preferably from the address linked to your account. You will receive an answer within one month, which may be extended by two months given the complexity or number of requests; you will be informed if so. If there is reasonable doubt about your identity, additional information may be requested.",
+        "complaint": "You may lodge a complaint with the Belgian Data Protection Authority (rue de la Presse 35, 1000 Brussels) or with the supervisory authority of the Member State where you live.",
+        "authority": "Data Protection Authority"
+      },
+      "minors": {
+        "title": "Minors",
+        "text": "The Services are not intended for children under 13, and their data is deleted as soon as their presence is noticed. A minor's legal representatives may exercise the minor's rights on their behalf at the contact address."
+      },
+      "updates": {
+        "title": "Changes to this policy",
+        "text": "This policy is updated when the processing changes. Any substantial change is notified by e-mail at least 30 days before it takes effect, unless the law requires otherwise."
+      }
     }
   }
 }

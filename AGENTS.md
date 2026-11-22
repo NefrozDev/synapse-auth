@@ -70,8 +70,15 @@ their own sessions; the provider's session is the single sign-on.
   with `RouterTestingHarness`.
 - Nothing loads from another origin (system fonts, no CDN): the terms say so. The Caddyfile's CSP
   allows scripts from the site only, so the production build does not inline critical CSS.
-- `/terms` states facts (30-day session, 30-minute reset links, 14-day backups, OVHcloud, no
-  trackers, deletion reaching every app). Keep them true, and move `TERMS_UPDATED_ON` with them.
+- `/terms` holds the only terms of use and privacy policy of every Synapse Engineering app
+  (Plano, Erudi, Semver Sage, the portfolio); the apps link to it and keep no terms of their own.
+  Accepting them at sign-up covers every app. `TERMS_PARTS` (`terms.ts`) lists the sections in
+  order; their ids are anchors the apps link to (`#privacy`, `#content`, `#reports`), so never
+  rename one. It states facts about every app (session and sign-in cookie lifetimes, 30-minute
+  reset links, 14-day backups, OVHcloud, Vercel, Neon and Resend for the portfolio, Google Fonts
+  in Semver Sage, what deleting the account erases in each app, the publisher's details): keep
+  them true when any app changes, and move `TERMS_UPDATED_ON` with them. A substantial change is
+  announced by e-mail 30 days before it applies, as the terms promise.
 
 ## Common Commands
 

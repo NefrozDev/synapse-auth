@@ -1,0 +1,64 @@
+.terms {
+  gap: 24px;
+
+  ul,
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding-inline-start: 1.25rem;
+  }
+}
+
+.terms__contents {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+
+  // Each entry is a target of at least 24px (WCAG 2.5.8).
+  a {
+    display: inline-block;
+    min-height: 24px;
+  }
+}
+
+.terms__contents-part {
+  font-weight: 700;
+}
+
+.terms__part {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+}
+
+.terms__part-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.terms__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terms__section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.terms__part,
+.terms__section {
+  scroll-margin-top: 16px;
+}
+
+.terms__publisher {
+  font-style: normal;
+}
