@@ -129,7 +129,6 @@ export const TERMS_PARTS: readonly TermsPart[] = [
           p('users'),
           p('processors'),
           list('ovh', 'vercel', 'neon', 'resend'),
-          p('fonts'),
           p('authorities'),
         ],
       },

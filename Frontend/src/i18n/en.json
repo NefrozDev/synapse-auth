@@ -282,13 +282,12 @@
           "neon": "Neon (United States): database of the messages sent through the contact form;",
           "resend": "Resend Inc. (United States): delivery of contact form messages to Synapse Engineering."
         },
-        "fonts": "Semver Sage loads its fonts from Google Fonts: your browser then sends your IP address to Google Ireland Limited and Google LLC.",
         "authorities": "Finally, your data may be disclosed to public authorities where the law requires it."
       },
       "transfers": {
         "title": "Transfers outside the European Union",
-        "eu": "The data of the Synapse account, Plano, Erudi and Semver Sage is hosted in France and does not leave the European Union, except for the loading of Semver Sage's fonts.",
-        "us": "Data processed by the Synapse Engineering website and its contact form may be transferred to the United States by Vercel, Neon and Resend, as may the IP address sent to Google. These transfers rely on the European Commission's adequacy decision on the EU–US Data Privacy Framework for certified companies and, failing that, on the standard contractual clauses adopted by the Commission (Article 46 GDPR), a copy of which may be obtained from the contact address."
+        "eu": "The data of the Synapse account, Plano, Erudi and Semver Sage is hosted in France and does not leave the European Union.",
+        "us": "Data processed by the Synapse Engineering website and its contact form may be transferred to the United States by Vercel, Neon and Resend. These transfers rely on the European Commission's adequacy decision on the EU–US Data Privacy Framework for certified companies and, failing that, on the standard contractual clauses adopted by the Commission (Article 46 GDPR), a copy of which may be obtained from the contact address."
       },
       "retention": {
         "title": "Retention periods",
@@ -298,7 +297,7 @@
           "questions": "questions asked to Semver Sage: while the answer is produced;",
           "copies": "copies of Erudi's public decks: kept by the user who made them, in their own account;",
           "notices": "deletion notices sent to the apps: until they are received, and 14 days at most;",
-          "contact": "contact form messages: as long as needed to handle the request and follow up on the exchange, and at most three years after the last exchange;",
+          "contact": "contact form messages: as long as needed to handle the request and follow up on the exchange, and at most three years after they were sent;",
           "ip": "IP address used to limit abuse: one minute;",
           "backups": "backups of the Synapse account, Plano and Erudi: made every night and kept 14 days at most; deleted data disappears from them within that period."
         },
@@ -306,7 +305,7 @@
       },
       "cookies": {
         "title": "Cookies and local storage",
-        "necessary": "The Services only use cookies and local storage that are strictly necessary for them to work, which are exempt from consent under Article 5(3) of Directive 2002/58/EC and its transposition into Belgian law. No analytics, advertising or social media cookie is used.",
+        "necessary": "The Services only use cookies and local storage that are strictly necessary for them to work, which are exempt from consent under Article 5(3) of Directive 2002/58/EC and its transposition into Belgian law. No analytics, advertising or social media cookie is used. No resource is loaded from a third-party site.",
         "list": {
           "account": "Synapse account: session cookie (30 days at most), cookies for a sign-in in progress (one hour at most) and a cookie protecting the sign-in to the \"My account\" page (10 minutes);",
           "plano": "Plano: session cookie (30 days at most) and sign-in cookie (10 minutes); local storage of your language and of a copy of your data specific to your account, used for display;",

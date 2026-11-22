@@ -137,7 +137,7 @@ describe('Terms and SignedOut', () => {
       'OVH SAS (France)',
       "Aucun cookie de mesure d'audience",
       'chaque application est avertie',
-      'Google Fonts',
+      "Aucune ressource n'est chargée depuis un site tiers",
       "tribunaux de l'arrondissement judiciaire de Namur",
       'la version française prévaut',
       'règlement (UE) 2022/2065',

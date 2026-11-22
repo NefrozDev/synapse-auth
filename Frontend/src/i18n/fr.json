@@ -282,13 +282,12 @@
           "neon": "Neon (États-Unis) : base de données des messages du formulaire de contact ;",
           "resend": "Resend Inc. (États-Unis) : acheminement des messages du formulaire de contact vers Synapse Engineering."
         },
-        "fonts": "Semver Sage charge ses polices de caractères depuis Google Fonts : votre navigateur communique alors votre adresse IP à Google Ireland Limited et Google LLC.",
         "authorities": "Vos données peuvent enfin être communiquées aux autorités publiques lorsque la loi l'exige."
       },
       "transfers": {
         "title": "Transferts hors de l'Union européenne",
-        "eu": "Les données du compte Synapse, de Plano, d'Erudi et de Semver Sage sont hébergées en France et ne quittent pas l'Union européenne, sous réserve du chargement des polices de Semver Sage.",
-        "us": "Les données traitées par le site de Synapse Engineering et son formulaire de contact peuvent être transférées aux États-Unis par Vercel, Neon et Resend, de même que l'adresse IP communiquée à Google. Ces transferts reposent sur la décision d'adéquation de la Commission européenne relative au cadre de protection des données UE–États-Unis pour les entreprises certifiées, et à défaut sur les clauses contractuelles types adoptées par la Commission (article 46 du RGPD), dont une copie peut être obtenue à l'adresse de contact."
+        "eu": "Les données du compte Synapse, de Plano, d'Erudi et de Semver Sage sont hébergées en France et ne quittent pas l'Union européenne.",
+        "us": "Les données traitées par le site de Synapse Engineering et son formulaire de contact peuvent être transférées aux États-Unis par Vercel, Neon et Resend. Ces transferts reposent sur la décision d'adéquation de la Commission européenne relative au cadre de protection des données UE–États-Unis pour les entreprises certifiées, et à défaut sur les clauses contractuelles types adoptées par la Commission (article 46 du RGPD), dont une copie peut être obtenue à l'adresse de contact."
       },
       "retention": {
         "title": "Durées de conservation",
@@ -298,7 +297,7 @@
           "questions": "questions posées à Semver Sage : le temps de produire la réponse ;",
           "copies": "copies de paquets publics d'Erudi : conservées par l'utilisateur qui les a faites, dans son propre compte ;",
           "notices": "avis de suppression adressés aux applications : jusqu'à leur réception, et au plus 14 jours ;",
-          "contact": "messages du formulaire de contact : le temps de traiter la demande et d'assurer le suivi de l'échange, et au plus trois ans après le dernier échange ;",
+          "contact": "messages du formulaire de contact : le temps de traiter la demande et d'assurer le suivi de l'échange, et au plus trois ans après leur envoi ;",
           "ip": "adresse IP utilisée pour limiter les abus : une minute ;",
           "backups": "sauvegardes du compte Synapse, de Plano et d'Erudi : réalisées chaque nuit et conservées 14 jours au plus ; une donnée supprimée en disparaît dans ce délai."
         },
@@ -306,7 +305,7 @@
       },
       "cookies": {
         "title": "Cookies et stockage local",
-        "necessary": "Les Services n'utilisent que des cookies et un stockage local strictement nécessaires à leur fonctionnement, dispensés de consentement en application de l'article 5.3 de la directive 2002/58/CE et de sa transposition en droit belge. Aucun cookie de mesure d'audience, de publicité ou de réseau social n'est utilisé.",
+        "necessary": "Les Services n'utilisent que des cookies et un stockage local strictement nécessaires à leur fonctionnement, dispensés de consentement en application de l'article 5.3 de la directive 2002/58/CE et de sa transposition en droit belge. Aucun cookie de mesure d'audience, de publicité ou de réseau social n'est utilisé. Aucune ressource n'est chargée depuis un site tiers.",
         "list": {
           "account": "compte Synapse : cookie de session (30 jours au plus), cookies d'une connexion en cours (une heure au plus) et cookie protégeant la connexion à la page « Mon compte » (10 minutes) ;",
           "plano": "Plano : cookie de session (30 jours au plus) et cookie de connexion en cours (10 minutes) ; stockage local de votre langue et d'une copie de vos données propre à votre compte, utilisée pour l'affichage ;",

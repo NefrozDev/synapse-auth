@@ -75,8 +75,8 @@ their own sessions; the provider's session is the single sign-on.
   Accepting them at sign-up covers every app. `TERMS_PARTS` (`terms.ts`) lists the sections in
   order; their ids are anchors the apps link to (`#privacy`, `#content`, `#reports`), so never
   rename one. It states facts about every app (session and sign-in cookie lifetimes, 30-minute
-  reset links, 14-day backups, OVHcloud, Vercel, Neon and Resend for the portfolio, Google Fonts
-  in Semver Sage, what deleting the account erases in each app, the publisher's details): keep
+  reset links, 14-day backups, OVHcloud, Vercel, Neon and Resend for the portfolio, no third-party
+  resource in any app, what deleting the account erases in each app, the publisher's details): keep
   them true when any app changes, and move `TERMS_UPDATED_ON` with them. A substantial change is
   announced by e-mail 30 days before it applies, as the terms promise.
 
