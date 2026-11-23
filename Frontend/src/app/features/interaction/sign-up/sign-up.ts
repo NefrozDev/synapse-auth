@@ -18,6 +18,7 @@ import { IdentityApi } from '../../../core/api/identity-api';
 import { BROWSER_LOCATION } from '../../../core/browser/browser-location';
 import { Language } from '../../../core/i18n/language';
 import { visibleError } from '../../../shared/forms/field-errors';
+import { confirmsPassword } from '../../../shared/forms/password-confirmation';
 import { PasswordToggle } from '../../../shared/forms/password-toggle';
 import {
   NAME_MAX_LENGTH,
@@ -85,12 +86,7 @@ export class SignUp {
       required(path.password, { message: 'errors.required' });
       minLength(path.password, PASSWORD_MIN_LENGTH, { message: 'errors.passwordLength' });
       maxLength(path.password, PASSWORD_MAX_LENGTH, { message: 'errors.passwordTooLong' });
-      required(path.passwordConfirmation, { message: 'errors.required' });
-      validate(path.passwordConfirmation, ({ value, valueOf }) =>
-        !value() || value() === valueOf(path.password)
-          ? null
-          : { kind: 'passwordMismatch', message: 'errors.passwordMismatch' },
-      );
+      confirmsPassword(path.passwordConfirmation, path.password);
       validate(path.acceptedTerms, ({ value }) =>
         value() ? null : { kind: 'terms', message: 'errors.acceptTerms' },
       );

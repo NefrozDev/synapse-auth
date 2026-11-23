@@ -97,6 +97,7 @@ describe('AccountPage', () => {
 
     typeInto(host, '#password-current', 'wrong');
     typeInto(host, '#password-new', 'a new long password');
+    typeInto(host, '#password-new-confirmation', 'a new long password');
     buttonNamed(host, 'Changer de mot de passe').click();
     await settle(harness.fixture);
 
@@ -104,6 +105,45 @@ describe('AccountPage', () => {
     expect(textOf(host, '#password-title ~ form .form-error')).toBe(
       'Le mot de passe est incorrect.',
     );
+  });
+
+  it('should not change the password until the new one is confirmed', async () => {
+    await signedIn();
+
+    typeInto(host, '#password-current', 'the current one');
+    typeInto(host, '#password-new', 'a new long password');
+    typeInto(host, '#password-new-confirmation', 'a new long pasword');
+    buttonNamed(host, 'Changer de mot de passe').click();
+    await settle(harness.fixture);
+
+    expect(textOf(host, '#password-title ~ form .form-error')).toBe(
+      'Les deux mots de passe ne correspondent pas.',
+    );
+    expect(query(host, '#password-new-confirmation').getAttribute('aria-invalid')).toBe('true');
+    expect(api.changePassword).not.toHaveBeenCalled();
+  });
+
+  it('should empty the three fields once the password is changed', async () => {
+    await signedIn();
+    api.changePassword.mockReturnValue(answer(undefined));
+
+    typeInto(host, '#password-current', 'the current one');
+    typeInto(host, '#password-new', 'a new long password');
+    typeInto(host, '#password-new-confirmation', 'a new long password');
+    buttonNamed(host, 'Changer de mot de passe').click();
+    await settle(harness.fixture);
+
+    expect(api.changePassword).toHaveBeenCalledExactlyOnceWith(
+      'the current one',
+      'a new long password',
+    );
+    expect(textOf(host, '#password-title ~ form [role="status"]')).toBe(
+      'Mot de passe changé. Vos autres appareils sont déconnectés.',
+    );
+    for (const id of ['#password-current', '#password-new', '#password-new-confirmation']) {
+      expect(query<HTMLInputElement>(host, id).value).toBe('');
+    }
+    expect(host.querySelector('#password-title ~ form .form-error')).toBeNull();
   });
 
   it('should sign out and say so', async () => {

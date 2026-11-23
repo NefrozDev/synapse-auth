@@ -14,8 +14,17 @@ import { firstValueFrom } from 'rxjs';
 import { errorField, failureMessage, httpStatus } from '../../core/api/api-errors';
 import { IdentityApi } from '../../core/api/identity-api';
 import { visibleError } from '../../shared/forms/field-errors';
+import { confirmsPassword } from '../../shared/forms/password-confirmation';
 import { PasswordToggle } from '../../shared/forms/password-toggle';
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from '../account-rules';
+
+interface PasswordChange {
+  currentPassword: string;
+  newPassword: string;
+  newPasswordConfirmation: string;
+}
+
+const EMPTY: PasswordChange = { currentPassword: '', newPassword: '', newPasswordConfirmation: '' };
 
 /** A new password; this device stays signed in, the others are signed out. */
 @Component({
@@ -31,7 +40,7 @@ export class PasswordSection {
   protected readonly formError = signal<string | null>(null);
   protected readonly changed = signal(false);
 
-  private readonly model = signal({ currentPassword: '', newPassword: '' });
+  private readonly model = signal<PasswordChange>(EMPTY);
 
   protected readonly form = form(
     this.model,
@@ -40,19 +49,18 @@ export class PasswordSection {
       required(path.newPassword, { message: 'errors.required' });
       minLength(path.newPassword, PASSWORD_MIN_LENGTH, { message: 'errors.passwordLength' });
       maxLength(path.newPassword, PASSWORD_MAX_LENGTH, { message: 'errors.passwordTooLong' });
+      confirmsPassword(path.newPasswordConfirmation, path.newPassword);
     },
     { submission: { action: (root) => this.submit(root) } },
   );
 
-  private async submit(
-    root: FieldTree<{ currentPassword: string; newPassword: string }>,
-  ): Promise<TreeValidationResult> {
+  private async submit(root: FieldTree<PasswordChange>): Promise<TreeValidationResult> {
     this.formError.set(null);
     this.changed.set(false);
     const { currentPassword, newPassword } = this.model();
     try {
       await firstValueFrom(this.api.changePassword(currentPassword, newPassword));
-      this.model.set({ currentPassword: '', newPassword: '' });
+      this.model.set(EMPTY);
       this.form().reset();
       this.changed.set(true);
       return null;

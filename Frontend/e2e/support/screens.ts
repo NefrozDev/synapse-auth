@@ -49,11 +49,13 @@ export const screens: Screen[] = [
       await page.getByRole('button', { name: 'Créer mon compte' }).click();
       await expect(page.getByText('Les deux mots de passe ne correspondent pas.')).toBeVisible();
       // After submitting, which hides them again.
-      const toggles = page.getByRole('button', { name: 'Afficher le mot de passe' });
-      for (const toggle of await toggles.all()) {
-        await toggle.click();
+      // Each click renames its button: wait for it, so the next click reaches the other one.
+      const hidden = page.getByRole('button', { name: 'Afficher le mot de passe' });
+      const shown = page.getByRole('button', { name: 'Masquer le mot de passe' });
+      for (const count of [1, 2]) {
+        await hidden.first().click();
+        await expect(shown).toHaveCount(count);
       }
-      await expect(page.getByRole('button', { name: 'Masquer le mot de passe' })).toHaveCount(2);
     },
   },
   { name: 'forgot password', url: '/forgot-password' },
@@ -74,14 +76,27 @@ export const screens: Screen[] = [
     },
   },
   { name: 'new password', url: `/reset-password#token=${VALID_TOKEN}` },
+  {
+    name: 'new password, confirmation not matching',
+    url: `/reset-password#token=${VALID_TOKEN}`,
+    act: async (page) => {
+      await page
+        .getByRole('textbox', { name: 'Nouveau mot de passe', exact: true })
+        .fill('a much longer password');
+      await page.getByLabel('Confirmer le nouveau mot de passe').fill('another password');
+      await page.getByRole('button', { name: 'Enregistrer' }).click();
+      await expect(page.getByText('Les deux mots de passe ne correspondent pas.')).toBeVisible();
+    },
+  },
   { name: 'new password, link no longer valid', url: '/reset-password' },
   {
     name: 'new password saved',
     url: `/reset-password#token=${VALID_TOKEN}`,
     act: async (page) => {
       await page
-        .getByRole('textbox', { name: 'Nouveau mot de passe' })
+        .getByRole('textbox', { name: 'Nouveau mot de passe', exact: true })
         .fill('a much longer password');
+      await page.getByLabel('Confirmer le nouveau mot de passe').fill('a much longer password');
       await page.getByRole('button', { name: 'Enregistrer' }).click();
       await expect(page.getByText('Votre mot de passe est changé')).toBeVisible();
     },

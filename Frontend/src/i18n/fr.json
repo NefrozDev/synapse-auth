@@ -80,6 +80,7 @@
   "reset": {
     "title": "Nouveau mot de passe",
     "password": "Nouveau mot de passe",
+    "passwordConfirmation": "Confirmer le nouveau mot de passe",
     "submit": "Enregistrer",
     "done": "Votre mot de passe est changé. Pour votre sécurité, vous êtes déconnecté de tous vos appareils et de toutes les applications.",
     "invalid": "Ce lien n'est plus valable. Demandez-en un nouveau.",
@@ -106,6 +107,7 @@
     "emailChanged": "Adresse e-mail changée.",
     "password": "Mot de passe",
     "newPassword": "Nouveau mot de passe",
+    "newPasswordConfirmation": "Confirmer le nouveau mot de passe",
     "changePassword": "Changer de mot de passe",
     "passwordChanged": "Mot de passe changé. Vos autres appareils sont déconnectés.",
     "sessions": "Connexion",

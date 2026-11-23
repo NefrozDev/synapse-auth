@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { IdentityApi } from '../../core/api/identity-api';
-import { buttonNamed, linkNamed, settle, textOf, typeInto } from '../../../testing/dom';
+import { buttonNamed, linkNamed, query, settle, textOf, typeInto } from '../../../testing/dom';
 import { answer, failWith, fakeApi } from '../../../testing/fake-api';
 import { ForgotPassword } from './forgot-password/forgot-password';
 import { ResetPassword } from './reset-password/reset-password';
@@ -81,6 +81,7 @@ describe('Password recovery pages', () => {
       expect(TestBed.inject(Router).url).toBe('/reset-password');
 
       typeInto(host, '#reset-password', 'a brand new password');
+      typeInto(host, '#reset-password-confirmation', 'a brand new password');
       buttonNamed(host, 'Enregistrer').click();
       await settle(harness.fixture);
 
@@ -90,6 +91,29 @@ describe('Password recovery pages', () => {
       );
       expect(textOf(host, '[role="status"]')).toContain('Votre mot de passe est changé.');
       expect(linkNamed(host, 'Me connecter').getAttribute('href')).toBe('/account');
+    });
+
+    it('should ask for the new password twice and send nothing until both match', async () => {
+      await visit(`/reset-password#token=${TOKEN}`);
+
+      buttonNamed(host, 'Enregistrer').click();
+      await settle(harness.fixture);
+      expect(textOf(host, '#reset-password-confirmation-error')).toBe('Ce champ est obligatoire.');
+
+      typeInto(host, '#reset-password', 'a brand new password');
+      typeInto(host, '#reset-password-confirmation', 'a brand new passwrod');
+      buttonNamed(host, 'Enregistrer').click();
+      await settle(harness.fixture);
+
+      const confirmation = query(host, '#reset-password-confirmation');
+      expect(textOf(host, '#reset-password-confirmation-error')).toBe(
+        'Les deux mots de passe ne correspondent pas.',
+      );
+      expect(confirmation.getAttribute('aria-invalid')).toBe('true');
+      expect(confirmation.getAttribute('aria-describedby')).toBe(
+        'reset-password-confirmation-error',
+      );
+      expect(api.confirmPasswordReset).not.toHaveBeenCalled();
     });
 
     it('should refuse a link without a valid token, without calling the API', async () => {
@@ -109,6 +133,7 @@ describe('Password recovery pages', () => {
       await visit(`/reset-password#token=${TOKEN}`);
 
       typeInto(host, '#reset-password', 'a brand new password');
+      typeInto(host, '#reset-password-confirmation', 'a brand new password');
       buttonNamed(host, 'Enregistrer').click();
       await settle(harness.fixture);
 

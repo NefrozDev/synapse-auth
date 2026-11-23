@@ -6,6 +6,7 @@ import { firstValueFrom } from 'rxjs';
 import { httpStatus } from '../../../core/api/api-errors';
 import { IdentityApi } from '../../../core/api/identity-api';
 import { visibleError } from '../../../shared/forms/field-errors';
+import { confirmsPassword } from '../../../shared/forms/password-confirmation';
 import { PasswordToggle } from '../../../shared/forms/password-toggle';
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, RESET_TOKEN_PATTERN } from '../../account-rules';
 
@@ -29,7 +30,7 @@ export class ResetPassword implements OnInit {
   protected readonly formError = signal<string | null>(null);
   protected readonly visibleError = visibleError;
 
-  private readonly model = signal({ password: '' });
+  private readonly model = signal({ password: '', passwordConfirmation: '' });
 
   protected readonly form = form(
     this.model,
@@ -37,6 +38,7 @@ export class ResetPassword implements OnInit {
       required(path.password, { message: 'errors.required' });
       minLength(path.password, PASSWORD_MIN_LENGTH, { message: 'errors.passwordLength' });
       maxLength(path.password, PASSWORD_MAX_LENGTH, { message: 'errors.passwordTooLong' });
+      confirmsPassword(path.passwordConfirmation, path.password);
     },
     { submission: { action: () => this.submit() } },
   );

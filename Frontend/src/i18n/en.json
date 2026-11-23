@@ -80,6 +80,7 @@
   "reset": {
     "title": "New password",
     "password": "New password",
+    "passwordConfirmation": "Confirm the new password",
     "submit": "Save",
     "done": "Your password is changed. For your safety, you are signed out of every device and every app.",
     "invalid": "This link no longer works. Ask for a new one.",
@@ -106,6 +107,7 @@
     "emailChanged": "E-mail address changed.",
     "password": "Password",
     "newPassword": "New password",
+    "newPasswordConfirmation": "Confirm the new password",
     "changePassword": "Change password",
     "passwordChanged": "Password changed. Your other devices are signed out.",
     "sessions": "Sign-in",
