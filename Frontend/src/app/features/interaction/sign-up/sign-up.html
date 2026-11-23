@@ -123,6 +123,34 @@
         </div>
 
         <div class="field">
+          <label class="field__label" for="sign-up-password-confirmation">{{
+            'signUp.passwordConfirmation' | transloco
+          }}</label>
+          <div class="password-field">
+            <input
+              #signUpPasswordConfirmationInput
+              id="sign-up-password-confirmation"
+              class="field__input"
+              type="password"
+              autocomplete="new-password"
+              [formField]="form.passwordConfirmation"
+              [attr.aria-invalid]="!!visibleError(form.passwordConfirmation)"
+              [attr.aria-describedby]="
+                visibleError(form.passwordConfirmation)
+                  ? 'sign-up-password-confirmation-error'
+                  : null
+              "
+            />
+            <app-password-toggle [input]="signUpPasswordConfirmationInput" />
+          </div>
+          @if (visibleError(form.passwordConfirmation); as error) {
+            <p class="form-error" id="sign-up-password-confirmation-error">
+              {{ error | transloco }}
+            </p>
+          }
+        </div>
+
+        <div class="field">
           <label class="checkbox">
             <input type="checkbox" [formField]="form.acceptedTerms" />
             <span>{{ 'signUp.accept' | transloco }}</span>

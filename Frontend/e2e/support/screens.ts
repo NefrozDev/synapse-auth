@@ -40,6 +40,22 @@ export const screens: Screen[] = [
       await page.getByRole('button', { name: 'Créer mon compte' }).click();
     },
   },
+  {
+    name: 'sign-up, passwords shown and not matching',
+    url: '/interaction/abc/sign-up',
+    act: async (page) => {
+      await page.getByLabel('Mot de passe', { exact: true }).fill('a much longer password');
+      await page.getByLabel('Confirmer le mot de passe').fill('another password');
+      await page.getByRole('button', { name: 'Créer mon compte' }).click();
+      await expect(page.getByText('Les deux mots de passe ne correspondent pas.')).toBeVisible();
+      // After submitting, which hides them again.
+      const toggles = page.getByRole('button', { name: 'Afficher le mot de passe' });
+      for (const toggle of await toggles.all()) {
+        await toggle.click();
+      }
+      await expect(page.getByRole('button', { name: 'Masquer le mot de passe' })).toHaveCount(2);
+    },
+  },
   { name: 'forgot password', url: '/forgot-password' },
   {
     name: 'forgot password with an error',

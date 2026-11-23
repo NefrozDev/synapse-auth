@@ -34,6 +34,8 @@ interface SignUpModel {
   username: string;
   email: string;
   password: string;
+  /** Typed twice so a typo does not lock the person out; never sent. */
+  passwordConfirmation: string;
   acceptedTerms: boolean;
 }
 
@@ -65,6 +67,7 @@ export class SignUp {
     username: '',
     email: '',
     password: '',
+    passwordConfirmation: '',
     acceptedTerms: false,
   });
 
@@ -82,6 +85,12 @@ export class SignUp {
       required(path.password, { message: 'errors.required' });
       minLength(path.password, PASSWORD_MIN_LENGTH, { message: 'errors.passwordLength' });
       maxLength(path.password, PASSWORD_MAX_LENGTH, { message: 'errors.passwordTooLong' });
+      required(path.passwordConfirmation, { message: 'errors.required' });
+      validate(path.passwordConfirmation, ({ value, valueOf }) =>
+        !value() || value() === valueOf(path.password)
+          ? null
+          : { kind: 'passwordMismatch', message: 'errors.passwordMismatch' },
+      );
       validate(path.acceptedTerms, ({ value }) =>
         value() ? null : { kind: 'terms', message: 'errors.acceptTerms' },
       );
@@ -95,10 +104,12 @@ export class SignUp {
     try {
       const { redirectTo } = await firstValueFrom(
         this.api.register(this.uid(), {
-          ...values,
           givenName: values.givenName.trim(),
           familyName: values.familyName.trim(),
           username: values.username.trim(),
+          email: values.email,
+          password: values.password,
+          acceptedTerms: values.acceptedTerms,
           // The page's language becomes the account's, as the person read it.
           locale: this.language.current,
         }),

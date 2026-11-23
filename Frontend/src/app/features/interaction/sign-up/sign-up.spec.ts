@@ -50,6 +50,7 @@ describe('SignUp', () => {
       '#sign-up-username': 'jamie.doe',
       '#sign-up-email': 'jamie@example.test',
       '#sign-up-password': 'correct horse battery',
+      '#sign-up-password-confirmation': 'correct horse battery',
       ...values,
     };
     for (const [selector, value] of Object.entries(all)) {
@@ -79,7 +80,12 @@ describe('SignUp', () => {
   });
 
   it('should refuse a sign-up without the terms or with invalid fields, and send nothing', async () => {
-    fill({ '#sign-up-username': 'a b', '#sign-up-password': 'short', '#sign-up-email': 'nope' });
+    fill({
+      '#sign-up-username': 'a b',
+      '#sign-up-password': 'short',
+      '#sign-up-password-confirmation': '',
+      '#sign-up-email': 'nope',
+    });
 
     await acceptAndSubmit(false);
 
@@ -88,9 +94,59 @@ describe('SignUp', () => {
       '3 à 30 lettres, chiffres, points, tirets ou tirets bas.',
       'Saisissez une adresse e-mail valide.',
       'Le mot de passe doit contenir au moins 8 caractères.',
+      'Ce champ est obligatoire.',
       'Acceptez les conditions pour créer un compte.',
     ]);
     expect(api.register).not.toHaveBeenCalled();
+  });
+
+  it('should refuse a confirmation that differs from the password, and send nothing', async () => {
+    fill({ '#sign-up-password-confirmation': 'correct horse battery!' });
+
+    await acceptAndSubmit();
+
+    const confirmation = query<HTMLInputElement>(host, '#sign-up-password-confirmation');
+    expect(textOf(host, '#sign-up-password-confirmation-error')).toBe(
+      'Les deux mots de passe ne correspondent pas.',
+    );
+    expect(confirmation.getAttribute('aria-invalid')).toBe('true');
+    expect(confirmation.getAttribute('aria-describedby')).toBe(
+      'sign-up-password-confirmation-error',
+    );
+    expect(host.querySelectorAll('.form-error')).toHaveLength(1);
+    expect(api.register).not.toHaveBeenCalled();
+  });
+
+  it('should accept the confirmation once the password is changed to match it', async () => {
+    api.register.mockReturnValue(answer({ redirectTo: 'https://auth.example/oidc/auth/uid-1' }));
+    fill({ '#sign-up-password-confirmation': 'another long password' });
+    await acceptAndSubmit();
+    expect(api.register).not.toHaveBeenCalled();
+
+    typeInto(host, '#sign-up-password', 'another long password');
+    await acceptAndSubmit();
+
+    expect(host.querySelector('#sign-up-password-confirmation-error')).toBeNull();
+    expect(api.register).toHaveBeenCalledOnce();
+    expect(api.register.mock.calls[0][1].password).toBe('another long password');
+  });
+
+  it('should let each password be shown on its own', async () => {
+    const [password, confirmation] = [
+      query<HTMLInputElement>(host, '#sign-up-password'),
+      query<HTMLInputElement>(host, '#sign-up-password-confirmation'),
+    ];
+    const toggles = [...host.querySelectorAll<HTMLButtonElement>('.password-toggle')];
+    expect(toggles.map((toggle) => toggle.getAttribute('aria-controls'))).toEqual([
+      'sign-up-password',
+      'sign-up-password-confirmation',
+    ]);
+
+    toggles[1].click();
+    await settle(harness.fixture);
+
+    expect(password.type).toBe('password');
+    expect(confirmation.type).toBe('text');
   });
 
   it('should create the account in the page language and hand the browser back', async () => {
