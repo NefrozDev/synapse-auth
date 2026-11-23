@@ -13,11 +13,12 @@ import { firstValueFrom } from 'rxjs';
 import { errorField, failureMessage, httpStatus } from '../../core/api/api-errors';
 import { type Account, IdentityApi } from '../../core/api/identity-api';
 import { visibleError } from '../../shared/forms/field-errors';
+import { PasswordToggle } from '../../shared/forms/password-toggle';
 
 /** A new e-mail address, confirmed with the password. */
 @Component({
   selector: 'app-email-section',
-  imports: [FormField, FormRoot, TranslocoPipe],
+  imports: [FormField, FormRoot, PasswordToggle, TranslocoPipe],
   templateUrl: './email-section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

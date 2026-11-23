@@ -101,15 +101,19 @@
           <label class="field__label" for="sign-up-password">{{
             'signUp.password' | transloco
           }}</label>
-          <input
-            id="sign-up-password"
-            class="field__input"
-            type="password"
-            autocomplete="new-password"
-            [formField]="form.password"
-            [attr.aria-invalid]="!!visibleError(form.password)"
-            aria-describedby="sign-up-password-hint"
-          />
+          <div class="password-field">
+            <input
+              #signUpPasswordInput
+              id="sign-up-password"
+              class="field__input"
+              type="password"
+              autocomplete="new-password"
+              [formField]="form.password"
+              [attr.aria-invalid]="!!visibleError(form.password)"
+              aria-describedby="sign-up-password-hint"
+            />
+            <app-password-toggle [input]="signUpPasswordInput" />
+          </div>
           <p class="field__hint" id="sign-up-password-hint">
             {{ 'signUp.passwordHint' | transloco }}
           </p>

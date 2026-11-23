@@ -14,12 +14,13 @@ import { firstValueFrom } from 'rxjs';
 import { errorField, failureMessage, httpStatus } from '../../core/api/api-errors';
 import { IdentityApi } from '../../core/api/identity-api';
 import { visibleError } from '../../shared/forms/field-errors';
+import { PasswordToggle } from '../../shared/forms/password-toggle';
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH } from '../account-rules';
 
 /** A new password; this device stays signed in, the others are signed out. */
 @Component({
   selector: 'app-password-section',
-  imports: [FormField, FormRoot, TranslocoPipe],
+  imports: [FormField, FormRoot, PasswordToggle, TranslocoPipe],
   templateUrl: './password-section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

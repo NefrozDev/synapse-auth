@@ -34,6 +34,14 @@
     "toAccount": "Aller à mon compte",
     "retry": "Réessayer"
   },
+  "password": {
+    "show": "Afficher",
+    "hide": "Masquer",
+    "showLabel": "Afficher le mot de passe",
+    "hideLabel": "Masquer le mot de passe",
+    "shown": "Le mot de passe est visible.",
+    "hidden": "Le mot de passe est masqué."
+  },
   "signIn": {
     "title": "Connexion",
     "login": "Nom d'utilisateur ou adresse e-mail",

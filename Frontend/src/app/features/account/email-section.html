@@ -22,14 +22,18 @@
       <label class="field__label" for="email-password">{{
         'account.currentPassword' | transloco
       }}</label>
-      <input
-        id="email-password"
-        class="field__input"
-        type="password"
-        autocomplete="current-password"
-        [formField]="form.password"
-        [attr.aria-invalid]="!!visibleError(form.password)"
-      />
+      <div class="password-field">
+        <input
+          #emailPasswordInput
+          id="email-password"
+          class="field__input"
+          type="password"
+          autocomplete="current-password"
+          [formField]="form.password"
+          [attr.aria-invalid]="!!visibleError(form.password)"
+        />
+        <app-password-toggle [input]="emailPasswordInput" />
+      </div>
       @if (visibleError(form.password); as error) {
         <p class="form-error" role="alert">{{ error | transloco }}</p>
       }

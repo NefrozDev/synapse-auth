@@ -18,6 +18,7 @@ import { IdentityApi } from '../../../core/api/identity-api';
 import { BROWSER_LOCATION } from '../../../core/browser/browser-location';
 import { Language } from '../../../core/i18n/language';
 import { visibleError } from '../../../shared/forms/field-errors';
+import { PasswordToggle } from '../../../shared/forms/password-toggle';
 import {
   NAME_MAX_LENGTH,
   PASSWORD_MAX_LENGTH,
@@ -39,7 +40,7 @@ interface SignUpModel {
 /** Creating an account while signing in for an app; it comes back signed in. */
 @Component({
   selector: 'app-sign-up',
-  imports: [FormField, FormRoot, InteractionExpired, RouterLink, TranslocoPipe],
+  imports: [FormField, FormRoot, InteractionExpired, PasswordToggle, RouterLink, TranslocoPipe],
   templateUrl: './sign-up.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -6,6 +6,7 @@ import { firstValueFrom } from 'rxjs';
 import { httpStatus } from '../../../core/api/api-errors';
 import { IdentityApi } from '../../../core/api/identity-api';
 import { visibleError } from '../../../shared/forms/field-errors';
+import { PasswordToggle } from '../../../shared/forms/password-toggle';
 import { PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, RESET_TOKEN_PATTERN } from '../../account-rules';
 
 type ResetStep = 'form' | 'done' | 'invalid';
@@ -13,7 +14,7 @@ type ResetStep = 'form' | 'done' | 'invalid';
 /** Opened from the e-mailed link, whose fragment carries the token: `#token=…`. */
 @Component({
   selector: 'app-reset-password',
-  imports: [FormField, FormRoot, RouterLink, TranslocoPipe],
+  imports: [FormField, FormRoot, PasswordToggle, RouterLink, TranslocoPipe],
   templateUrl: './reset-password.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

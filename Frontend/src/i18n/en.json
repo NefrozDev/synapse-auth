@@ -34,6 +34,14 @@
     "toAccount": "Go to my account",
     "retry": "Try again"
   },
+  "password": {
+    "show": "Show",
+    "hide": "Hide",
+    "showLabel": "Show password",
+    "hideLabel": "Hide password",
+    "shown": "The password is visible.",
+    "hidden": "The password is hidden."
+  },
   "signIn": {
     "title": "Sign in",
     "login": "Username or e-mail address",

@@ -13,6 +13,7 @@ import { type Observable, firstValueFrom } from 'rxjs';
 import { errorField, failureMessage, httpStatus } from '../../core/api/api-errors';
 import { IdentityApi } from '../../core/api/identity-api';
 import { visibleError } from '../../shared/forms/field-errors';
+import { PasswordToggle } from '../../shared/forms/password-toggle';
 
 interface DeletionModel {
   password: string;
@@ -21,7 +22,7 @@ interface DeletionModel {
 /** Signing out (here or everywhere) and deleting the account. */
 @Component({
   selector: 'app-account-sessions',
-  imports: [FormField, FormRoot, TranslocoPipe],
+  imports: [FormField, FormRoot, PasswordToggle, TranslocoPipe],
   templateUrl: './account-sessions.html',
   // Two cards: spaced like the page's own.
   styles: ':host { display: flex; flex-direction: column; gap: 20px; }',

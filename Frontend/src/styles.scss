@@ -163,6 +163,28 @@ select {
   }
 }
 
+// A password input followed by its show/hide button (`app-password-toggle`).
+.password-field {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+
+  .field__input {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    // Edge's own reveal button would sit next to ours.
+    &::-ms-reveal {
+      display: none;
+    }
+  }
+
+  .password-toggle {
+    height: 100%;
+    padding-inline: 14px;
+  }
+}
+
 .checkbox {
   display: flex;
   gap: 10px;

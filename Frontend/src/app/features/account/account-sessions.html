@@ -31,15 +31,19 @@
       <label class="field__label" for="delete-password">{{
         'account.deleteConfirm' | transloco
       }}</label>
-      <input
-        id="delete-password"
-        class="field__input"
-        type="password"
-        autocomplete="current-password"
-        [formField]="form.password"
-        [attr.aria-invalid]="!!visibleError(form.password)"
-        [attr.aria-describedby]="visibleError(form.password) ? 'delete-password-error' : null"
-      />
+      <div class="password-field">
+        <input
+          #deletePasswordInput
+          id="delete-password"
+          class="field__input"
+          type="password"
+          autocomplete="current-password"
+          [formField]="form.password"
+          [attr.aria-invalid]="!!visibleError(form.password)"
+          [attr.aria-describedby]="visibleError(form.password) ? 'delete-password-error' : null"
+        />
+        <app-password-toggle [input]="deletePasswordInput" />
+      </div>
       @if (visibleError(form.password); as error) {
         <p class="form-error" id="delete-password-error">{{ error | transloco }}</p>
       }

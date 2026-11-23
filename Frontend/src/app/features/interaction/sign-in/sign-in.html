@@ -42,15 +42,21 @@
           <label class="field__label" for="sign-in-password">{{
             'signIn.password' | transloco
           }}</label>
-          <input
-            id="sign-in-password"
-            class="field__input"
-            type="password"
-            autocomplete="current-password"
-            [formField]="form.password"
-            [attr.aria-invalid]="!!visibleError(form.password)"
-            [attr.aria-describedby]="visibleError(form.password) ? 'sign-in-password-error' : null"
-          />
+          <div class="password-field">
+            <input
+              #signInPasswordInput
+              id="sign-in-password"
+              class="field__input"
+              type="password"
+              autocomplete="current-password"
+              [formField]="form.password"
+              [attr.aria-invalid]="!!visibleError(form.password)"
+              [attr.aria-describedby]="
+                visibleError(form.password) ? 'sign-in-password-error' : null
+              "
+            />
+            <app-password-toggle [input]="signInPasswordInput" />
+          </div>
           @if (visibleError(form.password); as error) {
             <p class="form-error" id="sign-in-password-error">{{ error | transloco }}</p>
           }

@@ -7,6 +7,7 @@ import { httpStatus } from '../../../core/api/api-errors';
 import { IdentityApi } from '../../../core/api/identity-api';
 import { BROWSER_LOCATION } from '../../../core/browser/browser-location';
 import { visibleError } from '../../../shared/forms/field-errors';
+import { PasswordToggle } from '../../../shared/forms/password-toggle';
 import { explainFailure, interactionResource, isExpired } from '../interaction-resource';
 import { InteractionExpired } from '../interaction-expired';
 
@@ -18,7 +19,7 @@ interface SignInModel {
 /** Signing in for an app: the page the provider sends browsers to. */
 @Component({
   selector: 'app-sign-in',
-  imports: [FormField, FormRoot, InteractionExpired, RouterLink, TranslocoPipe],
+  imports: [FormField, FormRoot, InteractionExpired, PasswordToggle, RouterLink, TranslocoPipe],
   templateUrl: './sign-in.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
