@@ -206,7 +206,8 @@
         "title": "Signalement des contenus illicites",
         "how": "Toute personne peut signaler un contenu qu'elle estime illicite ou contraire aux Conditions, depuis la fonction de signalement du Service lorsqu'elle existe (paquets publics d'Erudi) ou par e-mail à l'adresse de contact. Cette adresse constitue le point de contact unique prévu aux articles 11 et 12 du règlement (UE) 2022/2065 sur les services numériques ; les échanges peuvent avoir lieu en français ou en anglais.",
         "content": "Le signalement indique, dans la mesure du possible, l'emplacement précis du contenu, les raisons pour lesquelles il est considéré comme illicite, ainsi que les nom et adresse e-mail de son auteur, accompagnés d'une déclaration attestant de sa bonne foi.",
-        "decision": "Chaque signalement est examiné avec diligence et objectivité. Lorsqu'un contenu est retiré ou rendu inaccessible, ou qu'un compte est suspendu, l'utilisateur concerné en est informé, avec les motifs de la décision et les voies de recours. Il peut la contester par e-mail à l'adresse de contact ; la contestation est examinée par une personne. Aucune décision de modération n'est prise de manière entièrement automatisée.",
+        "assessment": "Chaque signalement est examiné avec diligence et objectivité. Synapse Engineering se réserve le droit d'apprécier s'il est fondé, c'est-à-dire si le contenu signalé est illicite ou contraire aux Conditions, et décide des suites à y donner. Un signalement manifestement infondé ou abusif reste sans suite ; une personne qui en adresse de manière répétée peut voir le traitement de ses signalements suspendu. L'auteur du signalement est informé de la décision prise.",
+        "decision": "Lorsqu'un contenu est retiré ou rendu inaccessible, ou qu'un compte est suspendu, l'utilisateur concerné en est informé, avec les motifs de la décision et les voies de recours. Il peut la contester par e-mail à l'adresse de contact ; la contestation est examinée par une personne. Aucune décision de modération n'est prise de manière entièrement automatisée.",
         "anonymity": "L'auteur d'un contenu signalé n'est pas informé de l'identité de la personne qui l'a signalé."
       },
       "ip": {
@@ -218,7 +219,7 @@
         "title": "Gratuité, disponibilité et évolution des Services",
         "free": "Les Services sont fournis gratuitement. L'introduction d'une fonctionnalité payante ferait l'objet de conditions particulières portées préalablement à votre connaissance, et aucun paiement ne vous serait demandé sans votre accord exprès.",
         "availability": "Synapse Engineering met en œuvre des moyens raisonnables pour assurer l'accès aux Services et la conservation de vos données, sans garantir une disponibilité continue. Les Services peuvent être interrompus pour maintenance, mise à jour ou raison de sécurité. Il vous est recommandé de conserver une copie des données auxquelles vous tenez.",
-        "evolution": "Synapse Engineering peut faire évoluer, limiter ou cesser tout ou partie d'un Service. La fermeture définitive d'un Service est annoncée par e-mail au moins 30 jours à l'avance, afin de vous permettre d'obtenir une copie de vos données."
+        "evolution": "Synapse Engineering peut faire évoluer, limiter ou cesser tout ou partie d'un Service. La fermeture définitive d'un Service est annoncée par e-mail au moins 15 jours à l'avance, afin de vous permettre d'obtenir une copie de vos données."
       },
       "liability": {
         "title": "Responsabilité",
@@ -234,13 +235,13 @@
       "changes": {
         "title": "Modification des Conditions",
         "right": "Synapse Engineering peut modifier les Conditions pour tenir compte de l'évolution des Services ou de la réglementation. La date de la dernière mise à jour figure en tête de ce document.",
-        "notice": "Toute modification substantielle vous est notifiée par e-mail au moins 30 jours avant son entrée en vigueur, sauf lorsqu'elle est imposée par la loi ou nécessaire à la sécurité des Services. Si vous refusez les nouvelles Conditions, vous pouvez supprimer votre compte avant cette date ; la poursuite de l'utilisation des Services après celle-ci vaut acceptation."
+        "notice": "Toute modification substantielle vous est notifiée au moins 15 jours avant son entrée en vigueur, par un avis affiché dans les Services ou par e-mail, sauf lorsqu'elle est imposée par la loi ou nécessaire à la sécurité des Services. Si vous refusez les nouvelles Conditions, vous pouvez supprimer votre compte avant cette date ; la poursuite de l'utilisation des Services après celle-ci vaut acceptation."
       },
       "law": {
         "title": "Droit applicable et litiges",
         "law": "Les Conditions sont régies par le droit belge. Le consommateur résidant dans un autre État membre de l'Union européenne conserve la protection des dispositions impératives de la loi de son pays de résidence.",
         "amicable": "En cas de différend, vous êtes invité à contacter d'abord Synapse Engineering afin de rechercher une solution amiable. Le consommateur peut également s'adresser gratuitement au Service de médiation pour le consommateur.",
-        "courts": "À défaut d'accord, les tribunaux de l'arrondissement judiciaire de Namur sont compétents, sans préjudice du droit du consommateur de saisir le juge de son domicile.",
+        "courts": "À défaut d'accord, le litige est porté devant les juridictions compétentes conformément à la loi.",
         "mediation": "Service de médiation pour le consommateur"
       },
       "language": {
@@ -289,7 +290,7 @@
         "users": "Les autres utilisateurs n'ont accès qu'à ce que vous choisissez de partager. Dans Plano, les personnes avec qui vous partagez (amis, membres de vos groupes, invités d'une liste ou d'un objectif) voient vos prénom, nom, nom d'utilisateur et photo, ainsi que les contenus partagés. Dans Erudi, les paquets publiés et votre nom d'utilisateur sont visibles de tous. Votre adresse e-mail n'est jamais montrée aux autres utilisateurs.",
         "processors": "Synapse Engineering fait appel aux prestataires suivants, liés par un contrat conforme à l'article 28 du RGPD :",
         "list": {
-          "ovh": "OVH SAS (France) : hébergement du compte Synapse, de Plano, d'Erudi et de Semver Sage, de leurs bases de données et sauvegardes, et du serveur de messagerie qui envoie les e-mails du compte ;",
+          "ovh": "OVH SAS (France), sur un serveur situé au Royaume-Uni : hébergement du compte Synapse, de Plano, d'Erudi et de Semver Sage, de leurs bases de données et sauvegardes, et du serveur de messagerie qui envoie les e-mails du compte ;",
           "vercel": "Vercel Inc. (États-Unis) : hébergement du site de Synapse Engineering et de son formulaire de contact ;",
           "neon": "Neon (États-Unis) : base de données des messages du formulaire de contact ;",
           "resend": "Resend Inc. (États-Unis) : acheminement des messages du formulaire de contact vers Synapse Engineering."
@@ -298,7 +299,7 @@
       },
       "transfers": {
         "title": "Transferts hors de l'Union européenne",
-        "eu": "Les données du compte Synapse, de Plano, d'Erudi et de Semver Sage sont hébergées en France et ne quittent pas l'Union européenne.",
+        "uk": "Les données du compte Synapse, de Plano, d'Erudi et de Semver Sage, ainsi que leurs sauvegardes, sont hébergées au Royaume-Uni. Ce transfert repose sur la décision d'adéquation de la Commission européenne relative au Royaume-Uni (article 45 du RGPD), qui reconnaît à ce pays un niveau de protection des données équivalent à celui de l'Union européenne.",
         "us": "Les données traitées par le site de Synapse Engineering et son formulaire de contact peuvent être transférées aux États-Unis par Vercel, Neon et Resend. Ces transferts reposent sur la décision d'adéquation de la Commission européenne relative au cadre de protection des données UE–États-Unis pour les entreprises certifiées, et à défaut sur les clauses contractuelles types adoptées par la Commission (article 46 du RGPD), dont une copie peut être obtenue à l'adresse de contact."
       },
       "retention": {
@@ -348,7 +349,7 @@
           "portability": "droit à la portabilité des données que vous avez fournies, dans un format structuré et lisible par machine (article 20) ;",
           "objection": "droit d'opposition, pour des raisons tenant à votre situation particulière, aux traitements fondés sur l'intérêt légitime (article 21)."
         },
-        "exercise": "Pour exercer ces droits, écrivez à {{email}}, de préférence depuis l'adresse associée à votre compte. Une réponse vous est apportée dans un délai d'un mois, qui peut être prolongé de deux mois compte tenu de la complexité ou du nombre de demandes ; vous en êtes alors informé. En cas de doute raisonnable sur votre identité, des informations complémentaires peuvent vous être demandées.",
+        "exercise": "Pour exercer ces droits, écrivez à {{email}}, de préférence depuis l'adresse associée à votre compte. Votre demande est traitée dans les meilleurs délais, compte tenu de sa complexité et du nombre de demandes, et au plus tard dans les délais fixés par le RGPD. En cas de doute raisonnable sur votre identité, des informations complémentaires peuvent vous être demandées.",
         "complaint": "Vous pouvez introduire une réclamation auprès de l'Autorité de protection des données (rue de la Presse 35, 1000 Bruxelles) ou de l'autorité de contrôle de l'État membre de votre résidence.",
         "authority": "Autorité de protection des données"
       },
@@ -358,7 +359,7 @@
       },
       "updates": {
         "title": "Modification de la politique",
-        "text": "Cette politique est mise à jour lorsque les traitements évoluent. Toute modification substantielle est notifiée par e-mail au moins 30 jours avant son entrée en vigueur, sauf obligation légale contraire."
+        "text": "Cette politique est mise à jour lorsque les traitements évoluent. Toute modification substantielle est notifiée au moins 15 jours avant son entrée en vigueur, par un avis affiché dans les Services ou par e-mail, sauf obligation légale contraire."
       }
     }
   }

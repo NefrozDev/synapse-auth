@@ -94,24 +94,27 @@ describe('Terms and SignedOut', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('should show both parts with numbered sections, the date and the publisher', async () => {
+  it('should number the parts and their sections, and show the date and the publisher', async () => {
     await harness.navigateByUrl('/terms');
     const host = harness.routeNativeElement!;
 
     expect(textOf(host, 'h1')).toBe(
       "Conditions générales d'utilisation et politique de confidentialité",
     );
-    expect(textOf(host, 'header .subtitle')).toBe('Dernière mise à jour : 22 novembre 2026');
+    expect(textOf(host, 'header .subtitle')).toBe('Dernière mise à jour : 24 novembre 2026');
     expect(
       [...host.querySelectorAll('.terms__part-title')].map((h) => h.textContent?.trim()),
-    ).toEqual(["Conditions générales d'utilisation", 'Politique de confidentialité']);
-    for (const part of TERMS_PARTS) {
+    ).toEqual(["1. Conditions générales d'utilisation", '2. Politique de confidentialité']);
+    TERMS_PARTS.forEach((part, partIndex) => {
       const titles = [...host.querySelectorAll(`#${part.id} h3`)].map((h) => h.textContent?.trim());
       expect(titles).toHaveLength(part.sections.length);
-      titles.forEach((title, index) => expect(title?.startsWith(`${index + 1}. `)).toBe(true));
-    }
-    expect(textOf(host, '#publisher h3')).toBe('1. Éditeur et objet');
-    expect(textOf(host, '#controller h3')).toBe('1. Responsable du traitement');
+      titles.forEach((title, index) =>
+        expect(title?.startsWith(`${partIndex + 1}.${index + 1} `)).toBe(true),
+      );
+    });
+    expect(textOf(host, '#publisher h3')).toBe('1.1 Éditeur et objet');
+    expect(textOf(host, '#language h3')).toBe('1.15 Langue et dispositions diverses');
+    expect(textOf(host, '#controller h3')).toBe('2.1 Responsable du traitement');
 
     const address = textOf(host, 'address').replaceAll(/\s+/g, ' ');
     for (const detail of [
@@ -138,11 +141,20 @@ describe('Terms and SignedOut', () => {
       "Aucun cookie de mesure d'audience",
       'chaque application est avertie',
       "Aucune ressource n'est chargée depuis un site tiers",
-      "tribunaux de l'arrondissement judiciaire de Namur",
       'la version française prévaut',
       'règlement (UE) 2022/2065',
+      "se réserve le droit d'apprécier s'il est fondé",
+      "au moins 15 jours à l'avance",
+      'au moins 15 jours avant son entrée en vigueur, par un avis affiché dans les Services',
+      'sur un serveur situé au Royaume-Uni',
+      "décision d'adéquation de la Commission européenne relative au Royaume-Uni",
+      'au plus tard dans les délais fixés par le RGPD',
     ]) {
       expect(text).toContain(fact);
+    }
+    // Promises the services no longer keep: hosting in France, 30 days' notice, Namur's courts.
+    for (const stale of ['hébergées en France', 'au moins 30 jours', 'Namur sont compétents']) {
+      expect(text).not.toContain(stale);
     }
   });
 
@@ -155,6 +167,14 @@ describe('Terms and SignedOut', () => {
     );
     const ids = TERMS_PARTS.flatMap((part) => [part.id, ...part.sections.map(({ id }) => id)]);
     expect(hrefs).toEqual(ids.map((id) => `/terms#${id}`));
+    // Each entry reads like the heading it leads to, number included.
+    for (const id of ids) {
+      const entry = host.querySelector(`nav a[href="/terms#${id}"]`);
+      const heading = host.querySelector(`[id="${id}"] :is(h2, h3)`);
+      expect(entry?.textContent?.replaceAll(/s+/g, ' ').trim()).toBe(
+        heading?.textContent?.replaceAll(/s+/g, ' ').trim(),
+      );
+    }
     for (const id of ids) {
       expect(host.querySelectorAll(`[id="${id}"]`)).toHaveLength(1);
     }
@@ -195,8 +215,8 @@ describe('Terms and SignedOut', () => {
     const host = harness.routeNativeElement!;
 
     expect(textOf(host, 'h1')).toBe('Terms of use and privacy policy');
-    expect(textOf(host, 'header .subtitle')).toBe('Last updated: November 22, 2026');
-    expect(textOf(host, '#rights h3')).toBe('10. Your rights');
+    expect(textOf(host, 'header .subtitle')).toBe('Last updated: November 24, 2026');
+    expect(textOf(host, '#rights h3')).toBe('2.10 Your rights');
   });
 
   it('should go back to the account when the terms were opened on their own', async () => {

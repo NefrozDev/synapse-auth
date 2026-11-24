@@ -206,7 +206,8 @@
         "title": "Reporting illegal content",
         "how": "Anyone may report content they consider illegal or contrary to the Terms, through the Service's reporting feature where one exists (Erudi's public decks) or by e-mail to the contact address. That address is the single point of contact required by Articles 11 and 12 of Regulation (EU) 2022/2065 on digital services; communication may take place in French or English.",
         "content": "A report states, as far as possible, the exact location of the content, the reasons it is considered illegal, and the name and e-mail address of the person reporting it, together with a statement confirming their good faith.",
-        "decision": "Each report is examined diligently and objectively. When content is removed or disabled, or an account is suspended, the user concerned is informed of the reasons for the decision and of the available remedies. They may contest it by e-mail to the contact address; the appeal is examined by a person. No moderation decision is taken by wholly automated means.",
+        "assessment": "Each report is examined diligently and objectively. Synapse Engineering reserves the right to assess whether it is well-founded, that is, whether the reported content is illegal or contrary to the Terms, and decides what action to take. A manifestly unfounded or abusive report is not acted upon; a person who repeatedly sends such reports may have the processing of their reports suspended. The person who made the report is informed of the decision.",
+        "decision": "When content is removed or disabled, or an account is suspended, the user concerned is informed of the reasons for the decision and of the available remedies. They may contest it by e-mail to the contact address; the appeal is examined by a person. No moderation decision is taken by wholly automated means.",
         "anonymity": "The author of reported content is not told who reported it."
       },
       "ip": {
@@ -218,7 +219,7 @@
         "title": "Free of charge, availability and changes to the Services",
         "free": "The Services are provided free of charge. Any paid feature would be subject to specific terms brought to your attention beforehand, and no payment would be requested without your express agreement.",
         "availability": "Synapse Engineering uses reasonable means to keep the Services accessible and your data preserved, without guaranteeing uninterrupted availability. The Services may be interrupted for maintenance, updates or security reasons. You are advised to keep a copy of any data you value.",
-        "evolution": "Synapse Engineering may change, limit or discontinue all or part of a Service. The permanent closure of a Service is announced by e-mail at least 30 days in advance, so that you can obtain a copy of your data."
+        "evolution": "Synapse Engineering may change, limit or discontinue all or part of a Service. The permanent closure of a Service is announced by e-mail at least 15 days in advance, so that you can obtain a copy of your data."
       },
       "liability": {
         "title": "Liability",
@@ -234,13 +235,13 @@
       "changes": {
         "title": "Changes to the Terms",
         "right": "Synapse Engineering may amend the Terms to reflect changes to the Services or to the law. The date of the latest update appears at the top of this document.",
-        "notice": "Any substantial change is notified to you by e-mail at least 30 days before it takes effect, unless it is required by law or necessary for the security of the Services. If you refuse the new Terms, you may delete your account before that date; continuing to use the Services after it constitutes acceptance."
+        "notice": "Any substantial change is notified to you at least 15 days before it takes effect, through a notice displayed in the Services or by e-mail, unless it is required by law or necessary for the security of the Services. If you refuse the new Terms, you may delete your account before that date; continuing to use the Services after it constitutes acceptance."
       },
       "law": {
         "title": "Governing law and disputes",
         "law": "The Terms are governed by Belgian law. Consumers residing in another Member State of the European Union keep the protection of the mandatory provisions of the law of their country of residence.",
         "amicable": "In the event of a dispute, you are invited to contact Synapse Engineering first to seek an amicable solution. Consumers may also refer the matter free of charge to the Belgian Consumer Mediation Service.",
-        "courts": "Failing agreement, the courts of the judicial district of Namur have jurisdiction, without prejudice to the consumer's right to bring proceedings before the courts of their place of residence.",
+        "courts": "Failing agreement, the dispute is brought before the courts having jurisdiction under the law.",
         "mediation": "Consumer Mediation Service"
       },
       "language": {
@@ -289,7 +290,7 @@
         "users": "Other users only see what you choose to share. In Plano, the people you share with (friends, members of your groups, people invited to a list or an objective) see your first and last name, username and picture, and the shared content. In Erudi, published decks and your username are visible to everyone. Your e-mail address is never shown to other users.",
         "processors": "Synapse Engineering uses the following providers, bound by a contract complying with Article 28 GDPR:",
         "list": {
-          "ovh": "OVH SAS (France): hosting of the Synapse account, Plano, Erudi and Semver Sage, of their databases and backups, and of the mail server that sends the account's e-mails;",
+          "ovh": "OVH SAS (France), on a server located in the United Kingdom: hosting of the Synapse account, Plano, Erudi and Semver Sage, of their databases and backups, and of the mail server that sends the account's e-mails;",
           "vercel": "Vercel Inc. (United States): hosting of the Synapse Engineering website and its contact form;",
           "neon": "Neon (United States): database of the messages sent through the contact form;",
           "resend": "Resend Inc. (United States): delivery of contact form messages to Synapse Engineering."
@@ -298,7 +299,7 @@
       },
       "transfers": {
         "title": "Transfers outside the European Union",
-        "eu": "The data of the Synapse account, Plano, Erudi and Semver Sage is hosted in France and does not leave the European Union.",
+        "uk": "The data of the Synapse account, Plano, Erudi and Semver Sage, along with their backups, is hosted in the United Kingdom. This transfer relies on the European Commission's adequacy decision for the United Kingdom (Article 45 GDPR), which recognises that it ensures a level of data protection equivalent to that of the European Union.",
         "us": "Data processed by the Synapse Engineering website and its contact form may be transferred to the United States by Vercel, Neon and Resend. These transfers rely on the European Commission's adequacy decision on the EU–US Data Privacy Framework for certified companies and, failing that, on the standard contractual clauses adopted by the Commission (Article 46 GDPR), a copy of which may be obtained from the contact address."
       },
       "retention": {
@@ -348,7 +349,7 @@
           "portability": "right to portability of the data you provided, in a structured, machine-readable format (Article 20);",
           "objection": "right to object, on grounds relating to your particular situation, to processing based on legitimate interest (Article 21)."
         },
-        "exercise": "To exercise these rights, write to {{email}}, preferably from the address linked to your account. You will receive an answer within one month, which may be extended by two months given the complexity or number of requests; you will be informed if so. If there is reasonable doubt about your identity, additional information may be requested.",
+        "exercise": "To exercise these rights, write to {{email}}, preferably from the address linked to your account. Your request is handled as quickly as possible, given its complexity and the number of requests, and at the latest within the time limits set by the GDPR. If there is reasonable doubt about your identity, additional information may be requested.",
         "complaint": "You may lodge a complaint with the Belgian Data Protection Authority (rue de la Presse 35, 1000 Brussels) or with the supervisory authority of the Member State where you live.",
         "authority": "Data Protection Authority"
       },
@@ -358,7 +359,7 @@
       },
       "updates": {
         "title": "Changes to this policy",
-        "text": "This policy is updated when the processing changes. Any substantial change is notified by e-mail at least 30 days before it takes effect, unless the law requires otherwise."
+        "text": "This policy is updated when the processing changes. Any substantial change is notified at least 15 days before it takes effect, through a notice displayed in the Services or by e-mail, unless the law requires otherwise."
       }
     }
   }

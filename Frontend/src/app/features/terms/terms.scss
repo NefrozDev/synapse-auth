@@ -26,6 +26,21 @@
   }
 }
 
+.terms__contents {
+  ol {
+    list-style: none;
+  }
+
+  > ol {
+    gap: 12px;
+    padding-inline-start: 0;
+  }
+
+  li > ol {
+    margin-top: 6px;
+  }
+}
+
 .terms__contents-part {
   font-weight: 700;
 }

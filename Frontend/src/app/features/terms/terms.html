@@ -8,35 +8,39 @@
 
     <nav class="terms__contents" aria-labelledby="terms-contents">
       <h2 id="terms-contents" class="section-title">{{ 'terms.contents' | transloco }}</h2>
-      @for (part of parts; track part.id) {
-        <p class="terms__contents-part">
-          <a class="text-link" [routerLink]="[]" [fragment]="part.id">{{
-            'terms.' + part.id + '.title' | transloco
-          }}</a>
-        </p>
-        <ol>
-          @for (section of part.sections; track section.id) {
-            <li>
-              <a class="text-link" [routerLink]="[]" [fragment]="section.id">{{
-                'terms.' + part.id + '.' + section.id + '.title' | transloco
-              }}</a>
-            </li>
-          }
-        </ol>
-      }
+      <!-- The numbers are part of the text, as in the headings, so the list hides its own. -->
+      <ol>
+        @for (part of parts; track part.id; let partIndex = $index) {
+          <li>
+            <a class="text-link terms__contents-part" [routerLink]="[]" [fragment]="part.id"
+              >{{ partIndex + 1 }}. {{ 'terms.' + part.id + '.title' | transloco }}</a
+            >
+            <ol>
+              @for (section of part.sections; track section.id; let sectionIndex = $index) {
+                <li>
+                  <a class="text-link" [routerLink]="[]" [fragment]="section.id"
+                    >{{ partIndex + 1 }}.{{ sectionIndex + 1 }}
+                    {{ 'terms.' + part.id + '.' + section.id + '.title' | transloco }}</a
+                  >
+                </li>
+              }
+            </ol>
+          </li>
+        }
+      </ol>
     </nav>
 
-    @for (part of parts; track part.id) {
+    @for (part of parts; track part.id; let partIndex = $index) {
       <section class="terms__part" [id]="part.id" [attr.aria-labelledby]="part.id + '-title'">
         <h2 class="terms__part-title" [id]="part.id + '-title'">
-          {{ 'terms.' + part.id + '.title' | transloco }}
+          {{ partIndex + 1 }}. {{ 'terms.' + part.id + '.title' | transloco }}
         </h2>
 
-        @for (section of part.sections; track section.id; let number = $index) {
+        @for (section of part.sections; track section.id; let sectionIndex = $index) {
           @let prefix = 'terms.' + part.id + '.' + section.id + '.';
           <section class="terms__section" [id]="section.id">
             <h3 class="terms__section-title">
-              {{ number + 1 }}. {{ prefix + 'title' | transloco }}
+              {{ partIndex + 1 }}.{{ sectionIndex + 1 }} {{ prefix + 'title' | transloco }}
             </h3>
 
             @for (block of section.blocks; track $index) {

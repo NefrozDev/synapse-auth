@@ -13,7 +13,7 @@ import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { take } from 'rxjs';
 
 /** Move it with any change to the `terms` texts. */
-export const TERMS_UPDATED_ON = '2026-11-22';
+export const TERMS_UPDATED_ON = '2026-11-24';
 export const CONTACT_EMAIL = 'contact@synapseengineering.dev';
 export const DATA_PROTECTION_AUTHORITY_URL = 'https://www.autoriteprotectiondonnees.be';
 export const CONSUMER_MEDIATION_URL = 'https://mediationconsommateur.be';
@@ -91,7 +91,10 @@ export const TERMS_PARTS: readonly TermsPart[] = [
         blocks: [p('ownership'), p('licence'), p('publication'), p('warranty'), p('noReview')],
       },
       { id: 'ai', blocks: [p('generation'), p('verify'), p('sources')] },
-      { id: 'reports', blocks: [p('how'), p('content'), p('decision'), p('anonymity')] },
+      {
+        id: 'reports',
+        blocks: [p('how'), p('content'), p('assessment'), p('decision'), p('anonymity')],
+      },
       { id: 'ip', blocks: [p('ownership'), p('licence')] },
       { id: 'availability', blocks: [p('free'), p('availability'), p('evolution')] },
       { id: 'liability', blocks: [p('limits'), p('exceptions'), p('user')] },
@@ -132,7 +135,7 @@ export const TERMS_PARTS: readonly TermsPart[] = [
           p('authorities'),
         ],
       },
-      { id: 'transfers', blocks: [p('eu'), p('us')] },
+      { id: 'transfers', blocks: [p('uk'), p('us')] },
       {
         id: 'retention',
         blocks: [
